@@ -13,10 +13,10 @@
   </div>
   <div class="mb-3">
     <label for="email" class="form-label">Email address</label>
-    <input type="email" class="form-control{{#if errorMessage}} is-invalid {{/if}}" id="email" name="email" value={{email}}>
-    {{#if errorMessage}}
+    <input type="email" class="form-control{{#if errorMessage.email}} is-invalid {{/if}}" id="email" name="email" value={{email}}>
+    {{#if errorMessage.email}}
       <div id="validationServerUsernameFeedback" class="invalid-feedback">
-        {{errorMessage}}
+        {{errorMessage.email}}
       </div>
     {{/if}}
   </div>
@@ -29,5 +29,5 @@
       </div>
     {{/if}}
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Register</button>
 </form>
