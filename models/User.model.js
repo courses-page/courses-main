@@ -1,15 +1,16 @@
 const { Schema, model } = require("mongoose");
 
 const bcrypt = require("bcrypt");
+require('dotenv').config();
 
-const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i; 
+const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
 
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
 const userSchema = new Schema({
   username: {
     type: String,
     required: [true, "Username is required"],
-    minlegth: [3, "Username should be at least 3 chars long"]
+    minlegth: [3, "Username is too short"]
   },
   email: {
     type: String,
@@ -22,7 +23,7 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: [true, "Password is required"],
-    minlegth: [8, "Password should be at least 8 chars long"]
+    minlegth: [8, "Password is too short"]
   },
   fullName: {
     type: String
@@ -35,7 +36,7 @@ const userSchema = new Schema({
 
 userSchema.pre("save", function(next) {
   if (this.isModified("password")) {
-    bcrypt.hash(this.password, process.env.SALT_ROUNDS)
+    bcrypt.hash(this.password, 10)
       .then((hash) => {
         this.password = hash;
         next();

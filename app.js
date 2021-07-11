@@ -1,6 +1,6 @@
 // ℹ️ Gets access to environment variables/settings
 // https://www.npmjs.com/package/dotenv
-require("dotenv/config");
+require("dotenv").config()
 
 // ℹ️ Connects to the database
 require("./db");
@@ -26,7 +26,10 @@ app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 
 // 👇 Start handling routes here
 const index = require("./routes/index");
+const authRouter = require("./routes/auth.routes")
+
 app.use("/", index);
+app.use("/auth", authRouter);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

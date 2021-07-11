@@ -1,0 +1,33 @@
+<h1>User registration</h1>
+
+
+<form class="mt-4" action="/auth/registerUser" method="POST">
+<div class="mb-3">
+    <label for="username" class="form-label">Username</label>
+    <input type="username" class="form-control{{#if errorMessage}} is-invalid {{/if}}" id="username" name="username" value={{username}}>
+    {{#if errorMessage}}
+      <div id="validationServerUsernameFeedback" class="invalid-feedback">
+        {{errorMessage}}
+      </div>
+    {{/if}}
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email address</label>
+    <input type="email" class="form-control{{#if errorMessage}} is-invalid {{/if}}" id="email" name="email" value={{email}}>
+    {{#if errorMessage}}
+      <div id="validationServerUsernameFeedback" class="invalid-feedback">
+        {{errorMessage}}
+      </div>
+    {{/if}}
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control{{#if errorMessage}} is-invalid {{/if}}" id="password" name="password">
+    {{#if errorMessage}}
+      <div id="validationServerUsernameFeedback" class="invalid-feedback">
+        {{errorMessage}}
+      </div>
+    {{/if}}
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
