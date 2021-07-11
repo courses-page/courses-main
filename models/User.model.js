@@ -3,7 +3,8 @@ const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 require('dotenv').config();
 
-const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+const EMAIL_PATTERN = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+const SALT_ROUNDS = 10;
 
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
 const userSchema = new Schema({
@@ -18,7 +19,7 @@ const userSchema = new Schema({
     unique: true,
     trim: true,
     lowercase: true,
-    match: [emailRegex, "Invalid email"]
+    match: [EMAIL_PATTERN, "Invalid email"]
   },
   password: {
     type: String,
@@ -36,7 +37,7 @@ const userSchema = new Schema({
 
 userSchema.pre("save", function(next) {
   if (this.isModified("password")) {
-    bcrypt.hash(this.password, 10)
+    bcrypt.hash(this.password, SALT_ROUNDS)
       .then((hash) => {
         this.password = hash;
         next();
