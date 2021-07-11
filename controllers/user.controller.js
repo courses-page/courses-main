@@ -1,6 +1,6 @@
 const User = require("../models/User.model");
 const mongoose = require("mongoose");
-
+const passport = require("passport")
 
 module.exports.register = (req, res, next) => {
     res.render("auth/registerUser");
@@ -46,3 +46,5 @@ module.exports.doRegister = (req, res, next) => {
 module.exports.login = (req, res, next) => {
     res.render("auth/loginUser");
 }
+
+module.exports.doLogin = (passport.authenticate('local', { failureRedirect: '/auth/loginUser', successRedirect: '/' }));

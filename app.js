@@ -14,9 +14,12 @@ const express = require("express");
 const hbs = require("hbs");
 
 const app = express();
+require("./config/session.user.config")(app);
+require("./config/passport.user.config");
+
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
-require("./config")(app);
+require("./config/index")(app);
 
 // default value for title local
 const projectName = "courses-main";
