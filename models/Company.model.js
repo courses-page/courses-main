@@ -3,6 +3,7 @@ const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 
 const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i; 
+const SALT_ROUNDS = 10;
 
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
 const companySchema = new Schema({
@@ -35,20 +36,20 @@ const companySchema = new Schema({
 });
 
 companySchema.pre("save", function(next) {
-    if (this.isModified("password")) {
-      bcrypt.hash(this.password, process.env.SALT_ROUNDS)
-        .then((hash) => {
-          this.password = hash;
-          next();
-        })
-    } else {
-      next();
-    }
-  })
-  
-  companySchema.methods.checkPassword = function(passwordToCheck) {
-    return bcrypt.compare(passwordToCheck, this.password);
+  if (this.isModified("password")) {
+    bcrypt.hash(this.password, SALT_ROUNDS)
+      .then((hash) => {
+        this.password = hash;
+        next();
+      })
+  } else {
+    next();
   }
+})
+
+companySchema.methods.checkPassword = function(passwordToCheck) {
+  return bcrypt.compare(passwordToCheck, this.password);
+}
 
 const Company = model("Company", companySchema);
 

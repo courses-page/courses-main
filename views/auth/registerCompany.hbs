@@ -1,14 +1,33 @@
 <h1>Company registration</h1>
 
-<form class="mt-4" action="/auth/register" method="POST">
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+
+<form class="mt-4" action="/auth/registerCompany" method="POST">
+<div class="mb-3">
+    <label for="companyName" class="form-label">Company name</label>
+    <input type="companyName" class="form-control{{#if errorMessage.companyName}} is-invalid {{/if}}" id="companyName" name="companyName" value={{userData.companyName}}>
+    {{#if errorMessage.companyName}}
+      <div id="validationServerUsernameFeedback" class="invalid-feedback">
+        {{errorMessage.companyName.properties.message}}
+      </div>
+    {{/if}}
   </div>
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <label for="email" class="form-label">Email address</label>
+    <input type="email" class="form-control{{#if errorMessage.email}} is-invalid {{/if}}" id="email" name="email" value={{userData.email}}>
+    {{#if errorMessage.email}}
+      <div id="validationServerUsernameFeedback" class="invalid-feedback">
+        {{errorMessage.email}}
+      </div>
+    {{/if}}
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control{{#if errorMessage.password}} is-invalid {{/if}}" id="password" name="password">
+    {{#if errorMessage.password}}
+      <div id="validationServerUsernameFeedback" class="invalid-feedback">
+        {{errorMessage.password.properties.message}}
+      </div>
+    {{/if}}
+  </div>
+  <button type="submit" class="btn btn-primary">Register</button>
 </form>

@@ -22,16 +22,13 @@ module.exports.doRegister = (req, res, next) => {
         } 
 
         if (!user) {
-            console.log("REQ BODY: ", req.body)
             const newUser = req.body;
-            console.log("NEW USERRRR", newUser)
             User.create(newUser)
             .then (() => {
                 res.redirect("/")
-                //console.log(`New user created whith username ${newUser.username}`)
+                console.log(`New user created whith username ${newUser.username}`)
             })
             .catch((e) => {
-                console.log("Entra erroooooooor")
                 if (e instanceof mongoose.Error.ValidationError) {
                     console.log(e.errors)
                   res.render("auth/registerUser", { userData: req.body, errorMessage: e.errors })
@@ -44,4 +41,8 @@ module.exports.doRegister = (req, res, next) => {
     .catch((e) => {
         console.error(e)
     })
+}
+
+module.exports.login = (req, res, next) => {
+    res.render("auth/loginUser");
 }
