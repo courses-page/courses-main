@@ -1,5 +1,6 @@
 const Company = require("../models/Company.model");
 const mongoose = require("mongoose");
+const passport = require("passport")
 
 module.exports.register = (req, res, next) => {
     res.render("auth/registerCompany");
@@ -25,7 +26,7 @@ module.exports.doRegister = (req, res, next) => {
             Company.create(newUser)
             .then (() => {
                 res.redirect("/")
-                console.log(`New user created whith username ${newUser.username}`)
+                console.log(`New user created whith username ${newUser.companyName}`)
             })
             .catch((e) => {
                 if (e instanceof mongoose.Error.ValidationError) {
@@ -41,3 +42,10 @@ module.exports.doRegister = (req, res, next) => {
         console.error(e)
     })
 }
+
+module.exports.login = (req, res, next) => {
+    console.log("flas:", req.flash())
+    res.render("auth/loginCompany");
+}
+
+module.exports.doLogin = (passport.authenticate('company-local', { failureRedirect: '/auth/loginCompany', successRedirect: '/', failureFlash: true }));

@@ -1,20 +1,20 @@
-const passport = require("passport");
+const userPassport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 
 const User = require("../models/User.model");
 
-passport.serializeUser((user, next) => {
+userPassport.serializeUser((user, next) => {
   next(null, user.id);
 })
 
-passport.deserializeUser((id, next) => {
+userPassport.deserializeUser((id, next) => {
   User.findById(id)
     .then((user => next(null, user)))
     // .catch(e => next(e))
     .catch(next);
 })
 
-passport.use('local', new LocalStrategy({
+userPassport.use('user-local', new LocalStrategy({
   usernameField: 'email',
   passwordField: 'password',
 }, (email, password, next) => {

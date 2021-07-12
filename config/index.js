@@ -2,7 +2,10 @@
 const express = require("express");
 
 // Require passport 
-const passport = require("passport")
+const userPassport = require("passport")
+const companyPassport = require("passport")
+// Require flash
+const flash = require("connect-flash")
 
 // ℹ️ Responsible for the messages you see in the terminal as requests are coming in
 // https://www.npmjs.com/package/morgan
@@ -31,12 +34,20 @@ module.exports = (app) => {
   app.use(cookieParser());
 
   //sessions
-  app.use(passport.initialize());
-  app.use(passport.session());
+  app.use(userPassport.initialize());
+  app.use(userPassport.session());
+  app.use(companyPassport.initialize());
+  app.use(companyPassport.session());
+  app.use(flash());
   app.use((req, res, next) => {
     res.locals.currentUser = req.user;
     next()
   })
+//   app.use((req, res, next) => {
+//     res.locals.flashMessage = req.flash();
+//     next();
+// });
+
   
 
   // Normalizes the path to the views folder

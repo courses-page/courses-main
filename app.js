@@ -16,6 +16,7 @@ const hbs = require("hbs");
 const app = express();
 require("./config/session.user.config")(app);
 require("./config/passport.user.config");
+require("./config/passport.company.config");
 
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
