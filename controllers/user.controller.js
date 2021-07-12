@@ -48,7 +48,7 @@ module.exports.login = (req, res, next) => {
     res.render("auth/loginUser");
 }
 
-module.exports.doLogin = (passport.authenticate('user-local', { failureRedirect: '/auth/loginUser', successRedirect: '/', failureFlash: true }));
+module.exports.doLogin = (passport.authenticate('local', { failureRedirect: '/auth/loginUser', successRedirect: '/', failureFlash: true }));
 
 module.exports.logout = (req, res, next) => {
     req.logout();

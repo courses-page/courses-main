@@ -10,8 +10,11 @@ const EMAIL_PATTERN = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\"
 const userSchema = new Schema({
   username: {
     type: String,
-    required: [true, "Username is required"],
     minlength: [3, "Username is too short"]
+  },
+  companyName: {
+    type: String,
+    minlegth: [3, "Company name should be at least 3 chars long"]
   },
   email: {
     type: String,
@@ -32,6 +35,10 @@ const userSchema = new Schema({
   imageUrl: {
     type: String,
     default: "https://www.stevensegallery.com/640/360"
+  },
+  description: {
+    type: String,
+    minlegth: [25, "Description should be at least 25 chars long"]
   }
 });
 

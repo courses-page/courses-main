@@ -2,8 +2,7 @@
 const express = require("express");
 
 // Require passport 
-const userPassport = require("passport")
-const companyPassport = require("passport")
+const passport = require("passport")
 // Require flash
 const flash = require("connect-flash")
 
@@ -34,10 +33,8 @@ module.exports = (app) => {
   app.use(cookieParser());
 
   //sessions
-  app.use(userPassport.initialize());
-  app.use(userPassport.session());
-  app.use(companyPassport.initialize());
-  app.use(companyPassport.session());
+  app.use(passport.initialize());
+  app.use(passport.session());
   app.use(flash());
   app.use((req, res, next) => {
     res.locals.currentUser = req.user;
