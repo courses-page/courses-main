@@ -40,8 +40,9 @@ module.exports = (app) => {
     res.locals.currentUser = req.user;
     next()
   })
+
 //   app.use((req, res, next) => {
-//     res.locals.flashMessage = req.flash();
+//     res.locals.flashMessage = req.flash("error");
 //     next();
 // });
 

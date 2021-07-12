@@ -3,12 +3,21 @@
 <form class="mt-4" action="/auth/loginUser" method="POST">
   <div class="mb-3">
     <label for="email" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="email" name="email">
+    <input type="email" class="form-control {{#if flashMessage}} is-invalid {{/if}}" id="email" name="email">
+    {{#if flashMessage}}
+      <div id="validationServerUsernameFeedback" class="invalid-feedback">
+        {{flashMessage}}
+      </div>
+    {{/if}}
   </div>
   <div class="mb-3">
     <label for="password" class="form-label">Password</label>
-    <input type="password" class="form-control" id="password" name="password">
+    <input type="password" class="form-control {{#if flashMessage}} is-invalid {{/if}}" id="password" name="password">
+    {{#if flashMessage}}
+      <div id="validationServerUsernameFeedback" class="invalid-feedback">
+        {{flashMessage}}
+      </div>
+    {{/if}}
   </div>
   <button type="submit" class="btn btn-primary">Login!</button>
 </form>
-

@@ -2,6 +2,8 @@ const User = require("../models/User.model");
 const mongoose = require("mongoose");
 const passport = require("passport")
 
+const flash = require("connect-flash")
+
 module.exports.register = (req, res, next) => {
     res.render("auth/registerUser");
 }
@@ -48,7 +50,9 @@ module.exports.login = (req, res, next) => {
     res.render("auth/loginUser");
 }
 
-module.exports.doLogin = (passport.authenticate('local', { failureRedirect: '/auth/loginUser', successRedirect: '/', failureFlash: true }));
+module.exports.doLogin = function (req, res, next){
+    return passport.authenticate('local', { failureRedirect: '/auth/loginUser', successRedirect: '/', failureFlash: true})(req, res, next);
+}
 
 module.exports.logout = (req, res, next) => {
     req.logout();

@@ -21,14 +21,14 @@ passport.use('local', new LocalStrategy({
   User.findOne({ email: email })
     .then((user) => {
       if (!user) {
-        next(null, false, { error: "Email or password are incorrect" })
+        next(null, false, { message: "Email or password are incorrect" })
       } else {
         return user.checkPassword(password)
           .then((match) => {
             if (match) {
               next(null, user)
             } else {
-              next(null, false, { error: "Email or password are incorrect" })
+              next(null, false, { message: "Email or password are incorrect" })
             }
           })
       }
