@@ -25,6 +25,9 @@ module.exports.doRegister = (req, res, next) => {
 
         if (!user) {
             const newUser = req.body;
+            if (newUser.companyName) {
+                newUser.isCompany = "true";
+            }
             User.create(newUser)
             .then (() => {
                 res.redirect("/")

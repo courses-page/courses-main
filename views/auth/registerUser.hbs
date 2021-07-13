@@ -1,33 +1,72 @@
-<h1>User registration</h1>
+<h1>Registration</h1>
 
+<div id="buttons">
+  <btn class="btn btn-primary" id="userBtn">Register as user</btn>
+  <btn class="btn btn-secondary" id="companyBtn">Register as company</btn>
+</div>
 
-<form class="mt-4" action="/auth/registerUser" method="POST">
-<div class="mb-3">
-    <label for="username" class="form-label">Username</label>
-    <input type="username" class="form-control{{#if errorMessage.username}} is-invalid {{/if}}" id="username" name="username" value={{userData.username}}>
-    {{#if errorMessage.username}}
-      <div id="validationServerUsernameFeedback" class="invalid-feedback">
-        {{errorMessage.username.properties.message}}
-      </div>
-    {{/if}}
-  </div>
-  <div class="mb-3">
-    <label for="email" class="form-label">Email address</label>
-    <input type="email" class="form-control{{#if errorMessage.email}} is-invalid {{/if}}" id="email" name="email" value={{userData.email}}>
-    {{#if errorMessage.email}}
-      <div id="validationServerUsernameFeedback" class="invalid-feedback">
-        {{errorMessage.email}}
-      </div>
-    {{/if}}
-  </div>
-  <div class="mb-3">
-    <label for="password" class="form-label">Password</label>
-    <input type="password" class="form-control{{#if errorMessage.password}} is-invalid {{/if}}" id="password" name="password">
-    {{#if errorMessage.password}}
-      <div id="validationServerUsernameFeedback" class="invalid-feedback">
-        {{errorMessage.password.properties.message}}
-      </div>
-    {{/if}}
-  </div>
-  <button type="submit" class="btn btn-primary">Register</button>
-</form>
+<div id="userForm" style="display: none;">
+  <form class="mt-4" action="/auth/registerUser" method="POST">
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" class="form-control{{#if errorMessage.username}} is-invalid {{/if}}" id="username" name="username" value="{{userData.username}}">
+      {{#if errorMessage.username}}
+        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+          {{errorMessage.username.properties.message}}
+        </div>
+      {{/if}}
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control{{#if errorMessage.email}} is-invalid {{/if}}" id="email" name="email" value="{{userData.email}}">
+      {{#if errorMessage.email}}
+        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+          {{errorMessage.email}}
+        </div>
+      {{/if}}
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control{{#if errorMessage.password}} is-invalid {{/if}}" id="password" name="password">
+      {{#if errorMessage.password}}
+        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+          {{errorMessage.password.properties.message}}
+        </div>
+      {{/if}}
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+</div>
+
+<div id="companyForm" style="display: none;">
+  <form class="mt-4" action="/auth/registerUser" method="POST">
+    <div class="mb-3">
+      <label for="companyName" class="form-label">Company Name</label>
+      <input type="text" class="form-control{{#if errorMessage.companyName}} is-invalid {{/if}}" id="companyName" name="companyName" value="{{userData.companyName}}" required>
+      {{#if errorMessage.companyName}}
+        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+          {{errorMessage.companyName.properties.message}}
+        </div>
+      {{/if}}
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control{{#if errorMessage.email}} is-invalid {{/if}}" id="email" name="email" value="{{userData.email}}">
+      {{#if errorMessage.email}}
+        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+          {{errorMessage.email}}
+        </div>
+      {{/if}}
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control{{#if errorMessage.password}} is-invalid {{/if}}" id="password" name="password">
+      {{#if errorMessage.password}}
+        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+          {{errorMessage.password.properties.message}}
+        </div>
+      {{/if}}
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+</div>

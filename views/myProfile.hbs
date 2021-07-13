@@ -1,0 +1,14 @@
+{{#if currentUser}}
+    {{#if currentUser.isCompany}}
+        <h3>Company Name:</h3>
+        <P>{{currentUser.companyName}}</P>
+    {{else}}
+        <h3>Username:</h3>
+        <P>{{currentUser.username}}</P>
+    {{/if}}
+
+{{else}}
+    <h1>Please log in to see your profile</h1>
+    <a href="/auth/loginUser">Login</a>
+
+{{/if}}

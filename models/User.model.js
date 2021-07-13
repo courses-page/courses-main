@@ -39,6 +39,10 @@ const userSchema = new Schema({
   description: {
     type: String,
     minlegth: [25, "Description should be at least 25 chars long"]
+  },
+  isCompany: {
+    type: Boolean,
+    default: false,
   }
 });
 
