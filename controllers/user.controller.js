@@ -49,7 +49,6 @@ module.exports.doRegister = (req, res, next) => {
 }
 
 module.exports.login = (req, res, next) => {
-    console.log("flas:", req.flash())
     res.render("auth/loginUser");
 }
 

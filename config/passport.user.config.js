@@ -51,8 +51,8 @@ passport.use('google-auth', new GoogleStrategy({
       { email: email },
       { googleID: googleID }
     ]})
-    console.log(googleID, email)
-    .then(user => {
+    .then((user) => {
+      console.log("USER: ", user)
       if (!user) {
         const newUserInstance = new User({
           email,
