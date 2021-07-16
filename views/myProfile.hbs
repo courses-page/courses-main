@@ -1,52 +1,48 @@
 {{#if currentUser}}
     <div class="d-flex flex-column align-items-center mb-3">
         <img class="w-75 p-3 rounded-circle" src="{{currentUser.imageUrl}}">
-        <a href="/">Change profile pic</a>
+         <button id="changeProfilePicture">Change profile picture</button>
     </div>
+
+    <div class="hidden" id="pictureForm">
+        <form class="mt-4" action="/updateProfilePic" method="POST" enctype="multipart/form-data">
+        <input type="file" id="profilePicture" name="profilePicture">
+        </form>
+    </div>
+
     {{#if currentUser.isCompany}}
         {{#if currentUser.companyName}}
-            <h3>Company Name:</h3>
-            <P>{{currentUser.companyName}}</P>
-        {{else}}
-            <h3>Add your company name:</h3>
-            <form class="mt-4" action="/auth/registerUser" method="POST">
-                <div class="mb-3">
-                <label for="companyName" class="form-label">Company Name</label>
-                <input type="text" class="form-control{{#if errorMessage.companyName}} is-invalid {{/if}}" id="companyName" name="companyName" value="{{userData.companyName}}" required>
-                {{#if errorMessage.companyName}}
-                    <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                    {{errorMessage.companyName.properties.message}}
-                    </div>
-                {{/if}}
-                <button type="submit" class="btn btn-primary mt-2">Add</button>
-            </form>
+            <h3 class="mt-3">Company name:</h3>
+            <p>{{currentUser.companyName}}</p>
+        {{/if}} 
+        {{#if currentUser.email}}
+            <h3 class="mt-3">Email:</h3>
+            <p>{{currentUser.email}}</p>
         {{/if}}
+        {{#if currentUser.description}}
+            <h3 class="mt-3">Company description:</h3>
+            <p>{{currentUser.description}}</p>
+        {{/if}} 
     {{else}}
         {{#if currentUser.username}}
             <h3>Username:</h3>
             <p>{{currentUser.username}}</p>
         {{/if}}
-
         {{#if currentUser.email}}
             <h3 class="mt-3">Email:</h3>
             <p>{{currentUser.email}}</p>
         {{/if}}
-
         {{#if currentUser.fullName}}
             <h3 class="mt-3">Full name:</h3>
             <p>{{currentUser.fullName}}</p>
-        {{/if}} 
-        <a href="/editMyProfile"><button class="btn btn-secondary mt-4">Edit Profile</button></a>
-        <p class="mt-1"><em>Use this button to edit your profile data and complete your info: e.g. Full name. </em></p>
-
-        {{#unless currentUser.googleID}}
-            <a href="/updatePassword"><button class="btn btn-danger mt-4">Update your password</button></a>
-        {{/unless}}
-
-
+        {{/if}}
     {{/if}}
+    <a href="/editMyProfile"><button class="btn btn-secondary mt-4">Edit Profile</button></a>
+        <p class="mt-1"><em>Use this button to edit your profile data and complete your info: e.g. Full name. </em></p>
+    {{#unless currentUser.googleID}}
+        <a href="/updatePassword"><button class="btn btn-danger mt-4">Update your password</button></a>
+    {{/unless}}
 {{else}}
     <h1>Please log in to see your profile</h1>
     <a href="/auth/loginUser">Login</a>
-
 {{/if}}

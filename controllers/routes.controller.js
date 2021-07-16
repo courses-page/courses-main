@@ -11,28 +11,57 @@ module.exports.editMyProfile = (req, res, next) => {
 }
 
 module.exports.doEditMyProfile = (req, res, next) => {
-    function validateEmail(email) {
-        const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(email);
-      }
 
-    const { username, email, fullName} = req.body;
-    const updatedUser = {}
-    if (username.length > 2) {
-        updatedUser.username = username
-    }
-    if (validateEmail(email)) {
-        updatedUser.email = email
-    }
-    if(fullName.length > 2) {
-        updatedUser.fullName = fullName
-    }
+    if(req.user.isCompany){
+        function validateEmail(email) {
+            const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        }
 
-    User.findByIdAndUpdate(req.user.id, updatedUser)
-    .then(() => {
-        res.redirect("/myProfile")
-    })
-    .catch(next)
+        const { username, email, companyName, description} = req.body;
+        const updatedUser = {}
+        if (username.length > 2) {
+            updatedUser.username = username
+        }
+        if (validateEmail(email)) {
+            updatedUser.email = email
+        }
+        if(companyName.length > 2) {
+            updatedUser.companyName = companyName
+        }
+        if(description.length > 24) {
+            updatedUser.description = description
+        }
+
+        User.findByIdAndUpdate(req.user.id, updatedUser)
+        .then(() => {
+            res.redirect("/myProfile")
+        })
+        .catch(next)
+    }else{
+        function validateEmail(email) {
+            const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+          }
+    
+        const { username, email, fullName} = req.body;
+        const updatedUser = {}
+        if (username.length > 2) {
+            updatedUser.username = username
+        }
+        if (validateEmail(email)) {
+            updatedUser.email = email
+        }
+        if(fullName.length > 2) {
+            updatedUser.fullName = fullName
+        }
+    
+        User.findByIdAndUpdate(req.user.id, updatedUser)
+        .then(() => {
+            res.redirect("/myProfile")
+        })
+        .catch(next)
+    }
 }
 
 module.exports.updatePassword = (req, res, next) => {

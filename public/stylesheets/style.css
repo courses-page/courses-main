@@ -10,3 +10,11 @@ a {
 h1 {
   color: 15px;
 }
+
+.hidden{
+  display: none;
+}
+
+.visible{
+  display: block;
+}

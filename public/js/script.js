@@ -21,6 +21,14 @@ document.addEventListener(
       userForm.style.display = "none";
       companyForm.style.display = "block";
     })
+
+    const changeProfilePicture = document.getElementById("changeProfilePicture");
+    const pictureForm = document.getElementById("pictureForm");
+
+    changeProfilePicture.addEventListener("click", () => { 
+      console.log("boton clickeado")
+    })
+
   },
   false
 );
