@@ -39,8 +39,9 @@
         <a href="/editMyProfile"><button class="btn btn-secondary mt-4">Edit Profile</button></a>
         <p class="mt-1"><em>Use this button to edit your profile data and complete your info: e.g. Full name. </em></p>
 
-        <a href="/updatePassword"><button class="btn btn-danger mt-4">Update your password</button></a>
-
+        {{#unless currentUser.googleID}}
+            <a href="/updatePassword"><button class="btn btn-danger mt-4">Update your password</button></a>
+        {{/unless}}
 
 
     {{/if}}

@@ -29,8 +29,11 @@ module.exports.doRegister = (req, res, next) => {
                 newUser.isCompany = "true";
             }
             User.create(newUser)
-            .then (() => {
-                res.redirect("/")
+            .then ((newUser) => {
+              req.login(newUser, function(err) {
+                if (err) { return next(err); }
+                return res.redirect('/');
+              });
                 console.log(`New user created whith username ${newUser.username}`)
             })
             .catch((e) => {
