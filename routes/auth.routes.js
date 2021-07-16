@@ -8,8 +8,11 @@ const GOOGLE_SCOPES = [
 
 const userController = require("../controllers/user.controller");
 const flashMiddlewares = require("../middlewares/flash.middlewares");
-//GET 
+//GET
+
+//register
 router.get("/registerUser", userController.register)
+//login
 router.get("/loginUser", flashMiddlewares, userController.login)
 router.get("/logoutUser", userController.logout)
 
@@ -18,7 +21,10 @@ router.get('/google', passport.authenticate('google-auth', { scope: GOOGLE_SCOPE
 router.get('/google/callback', userController.doLoginGoogle)
 
 //POST
+
+//register
 router.post("/registerUser", userController.doRegister)
+//login
 router.post("/loginUser", userController.doLogin)
 
 module.exports = router;

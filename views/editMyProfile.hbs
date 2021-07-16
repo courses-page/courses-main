@@ -1,0 +1,39 @@
+<form class="mt-4" action="/editMyProfile" method="POST">
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" class="form-control{{#if errorMessage.username}} is-invalid {{/if}}" id="username" name="username" placeholder="Choose a username" value="{{currentUser.username}}">
+      {{#if errorMessage.username}}
+        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+          {{errorMessage.username.properties.message}}
+        </div>
+      {{/if}}
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control{{#if errorMessage.email}} is-invalid {{/if}}" id="email" name="email" placeholder="Add your email" value="{{currentUser.email}}">
+      {{#if errorMessage.email}}
+        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+          {{errorMessage.email}}
+        </div>
+      {{/if}}
+    </div>
+    <div class="mb-3">
+      <label for="fullName" class="form-label">Full name</label>
+      <input type="text" class="form-control{{#if errorMessage.fullName}} is-invalid {{/if}}" id="fullName" name="fullName" placeholder="Add your full name" value="{{currentUser.fullName}}">
+      {{#if errorMessage.fullName}}
+        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+          {{errorMessage.fullName}}
+        </div>
+      {{/if}}
+    </div>
+    {{!-- <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control{{#if errorMessage.password}} is-invalid {{/if}}" id="password" name="password">
+      {{#if errorMessage.password}}
+        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+          {{errorMessage.password.properties.message}}
+        </div>
+      {{/if}}
+    </div> --}}
+    <button type="submit" class="btn btn-primary">Update</button>
+    </form>

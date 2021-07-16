@@ -19,6 +19,7 @@ passport.use('local', new LocalStrategy({
   usernameField: 'email',
   passwordField: 'password',
 }, (email, password, next) => {
+  console.log(password, email)
   User.findOne({ email: email })
     .then((user) => {
       if (!user) {
@@ -54,9 +55,9 @@ passport.use('google-auth', new GoogleStrategy({
     .then((user) => {
       console.log("USER: ", user)
       if (!user) {
-        const newUserInstance = new User({
+        let newUserInstance = new User({
           email,
-          password: mongoose.Types.ObjectId(),
+          password: Math.random().toString(36).slice(-8),
           googleID: googleID
         })
 

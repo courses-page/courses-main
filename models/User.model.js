@@ -34,7 +34,7 @@ const userSchema = new Schema({
   },
   imageUrl: {
     type: String,
-    default: "https://www.stevensegallery.com/640/360"
+    default: "https://media.revistagq.com/photos/5ca5ffcfbda594eb7433e978/master/pass/steven_seagal_8758.png"
   },
   description: {
     type: String,
