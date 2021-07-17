@@ -1,5 +1,6 @@
 const User = require("../models/User.model");
 const bcrypt = require("bcrypt")
+const fileUploader = require('../config/cloudinary.config')
 
 module.exports.showProfile = (req, res, next) => {
     res.render("myProfile")
@@ -77,13 +78,34 @@ module.exports.doUpdatePassword = (req, res, next) => {
         .then((hash) => {
             updatedPassword = hash;
             User.findByIdAndUpdate(req.user.id, {password: updatedPassword})
-        .then(() => {
-            res.redirect("/myProfile")
-        })
-            .catch(next)
-        })
+                .then(() => {
+                    res.redirect("/myProfile")
+                })
+                    .catch(next)
+                })
         .catch(e => console.error(e))
     } else {
         res.redirect("/updatePassword")
     }
+}
+
+module.exports.doUpdateProfilePic = (req, res, next) => {
+    if(req.file){
+    User.findByIdAndUpdate(req.user.id, {imageUrl: req.file.path})
+        .then(()=>{
+            res.redirect("/myProfile")
+        })
+        .catch(next)
+    }
+    else{
+        res.redirect("/myProfile")
+    }
+}
+
+module.exports.doUpgradeAccount = (req, res, next) => {
+    User.findByIdAndUpdate(req.user.id, {isCompany: true})
+        .then(()=>{
+            res.redirect("/myProfile")
+        })
+        .catch(next)
 }

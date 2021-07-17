@@ -17,7 +17,8 @@ router.get("/editMyProfile", routesRouter.editMyProfile)
 router.post("/editMyProfile", routesRouter.doEditMyProfile)
 router.get("/updatePassword", routesRouter.updatePassword)
 router.post("/updatePassword", routesRouter.doUpdatePassword)
-//Cloudinary
-
+router.get("/upgradeAccount", routesRouter.doUpgradeAccount)
+//Cloudinary 
+router.post("/updateProfilePic", fileUploader.single("profilePicture"), routesRouter.doUpdateProfilePic)
 
 module.exports = router;

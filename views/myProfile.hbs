@@ -4,9 +4,10 @@
          <button id="changeProfilePicture">Change profile picture</button>
     </div>
 
-    <div class="hidden" id="pictureForm">
+    <div class="hidden mb-4" id="pictureForm">
         <form class="mt-4" action="/updateProfilePic" method="POST" enctype="multipart/form-data">
         <input type="file" id="profilePicture" name="profilePicture">
+        <button Type="submit">Change picture!</button>
         </form>
     </div>
 
@@ -39,6 +40,12 @@
     {{/if}}
     <a href="/editMyProfile"><button class="btn btn-secondary mt-4">Edit Profile</button></a>
         <p class="mt-1"><em>Use this button to edit your profile data and complete your info: e.g. Full name. </em></p>
+    
+    {{#unless currentUser.isCompany}}
+    <a href="/upgradeAccount"><button class="btn btn-warning mt-4">Upgrade to company account</button></a>
+    <p class="mt-1"><em>Company accounts can create and publish their courses, but cant subscribe to any courses <span id="warning">(Warning: Once upgraded you will not be able to restore to a student account!!)</span></em></p>
+    {{/unless}}
+    
     {{#unless currentUser.googleID}}
         <a href="/updatePassword"><button class="btn btn-danger mt-4">Update your password</button></a>
     {{/unless}}
@@ -46,3 +53,5 @@
     <h1>Please log in to see your profile</h1>
     <a href="/auth/loginUser">Login</a>
 {{/if}}
+
+<script src="/js/myProfile.js"></script>
