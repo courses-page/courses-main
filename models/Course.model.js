@@ -1,4 +1,5 @@
-const { Schema, model } = require("mongoose");
+const mongoose = require("mongoose");
+const { Schema, model } = mongoose;
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
 const courseSchema = new Schema({
   title: {
@@ -21,7 +22,7 @@ const courseSchema = new Schema({
     enum: ['10h', '30h', '50h', '100h', '200h', '500h', '1000h'],
     required: [true, "Course duration is required"],
   },
-  dificulty: {
+  difficulty: {
     type: String,
     enum: ['Basic', 'Intermediate', 'Advanced'],
     required: [true, "Course duration is required"]
@@ -33,6 +34,10 @@ const courseSchema = new Schema({
   },
   address: {
     type: String
+  },
+  imageUrl: {
+    type: String,
+    default: "https://media.revistagq.com/photos/5ca5ffcfbda594eb7433e978/master/pass/steven_seagal_8758.png"
   }
 });
 

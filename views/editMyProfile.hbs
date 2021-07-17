@@ -1,15 +1,6 @@
 <form class="mt-4" action="/editMyProfile" method="POST">
   {{#if currentUser.isCompany}}
       <div class="mb-3">
-        <label for="username" class="form-label">username:</label>
-        <input type="text" class="form-control{{#if errorMessage.username}} is-invalid {{/if}}" id="username" name="username" placeholder="Indicate your full name" value="{{currentUser.username}}">
-        {{#if errorMessage.username}}
-          <div id="validationServerUsernameFeedback" class="invalid-feedback">
-            {{errorMessage.username.properties.message}}
-          </div>
-        {{/if}}
-      </div>
-      <div class="mb-3">
         <label for="companyName" class="form-label">Company Name:</label>
         <input type="text" class="form-control{{#if errorMessage.companyName}} is-invalid {{/if}}" id="companyName" name="companyName" placeholder="Modify your username" value="{{currentUser.companyName}}">
         {{#if errorMessage.companyName}}

@@ -1,4 +1,5 @@
 const User = require("../models/User.model");
+const Course = require("../models/Course.model");
 const bcrypt = require("bcrypt")
 const fileUploader = require('../config/cloudinary.config')
 
@@ -19,11 +20,8 @@ module.exports.doEditMyProfile = (req, res, next) => {
             return re.test(email);
         }
 
-        const { username, email, companyName, description} = req.body;
+        const { email, companyName, description} = req.body;
         const updatedUser = {}
-        if (username.length > 2) {
-            updatedUser.username = username
-        }
         if (validateEmail(email)) {
             updatedUser.email = email
         }
@@ -108,4 +106,12 @@ module.exports.doUpgradeAccount = (req, res, next) => {
             res.redirect("/myProfile")
         })
         .catch(next)
+}
+
+module.exports.listCourses = (req, res, next) => {
+    Course.find()
+    .then((courses) => {
+        res.render ("index", {coursesList: courses})
+    })
+    .catch(next)
 }

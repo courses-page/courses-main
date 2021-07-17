@@ -1,5 +1,9 @@
 
 <div class="container mt-4">
-    <h1>{{title}} 🚀</h1>
-    <p>Welcome Ironhacker!</p>
+    <h1>Courses on offer:</h1>
+    <div class="row row-cols-1 row-cols-md-2 g-4"></div>
+    {{#each coursesList}}
+        {{> courseCard}}
+    {{/each}}
+    </div>
 </div>
