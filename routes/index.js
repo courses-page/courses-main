@@ -10,6 +10,8 @@ router.get("/", routesRouter.listCourses)
 
 //Show
 router.get("/myProfile", routesRouter.showProfile)
+router.get("/courseDetail/:id", routesRouter.showCourseDetail)
+
 //Edit
 router.get("/editMyProfile", routesRouter.editMyProfile)
 router.post("/editMyProfile", routesRouter.doEditMyProfile)

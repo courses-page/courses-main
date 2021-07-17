@@ -115,3 +115,13 @@ module.exports.listCourses = (req, res, next) => {
     })
     .catch(next)
 }
+
+module.exports.showCourseDetail = (req, res, next) => {
+    const {id} = req.params
+    Course.findById(id)
+    .then((course)=>{
+    res.render("courseDetail", course)
+    })
+    .catch(next)
+}
+
