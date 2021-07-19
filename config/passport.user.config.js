@@ -28,7 +28,11 @@ passport.use('local', new LocalStrategy({
         return user.checkPassword(password)
           .then((match) => {
             if (match) {
-              next(null, user)
+              if(user.active){
+                next(null, user)
+              }else{
+                next(null, false, {message: "Check your email, you have to activate your account!"})
+              }
             } else {
               next(null, false, { message: "Email or password are incorrect" })
             }
@@ -58,7 +62,8 @@ passport.use('google-auth', new GoogleStrategy({
         let newUserInstance = new User({
           email,
           password: Math.random().toString(36).slice(-8),
-          googleID: googleID
+          googleID: googleID,
+          active: true
         })
 
         return newUserInstance.save()

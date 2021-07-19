@@ -1,6 +1,7 @@
 const User = require("../models/User.model");
 const mongoose = require("mongoose");
 const passport = require("passport");
+const mailer = require("../config/mailer.config")
 
 const flash = require("connect-flash")
 
@@ -30,11 +31,10 @@ module.exports.doRegister = (req, res, next) => {
             }
             User.create(newUser)
             .then ((newUser) => {
-              req.login(newUser, function(err) {
-                if (err) { return next(err); }
-                return res.redirect('/');
-              });
-                console.log(`New user created whith username ${newUser.username}`)
+              console.log("USER: ", newUser)
+              mailer.sendActivationEmail(newUser.email, newUser.activationToken);
+              console.log(`New user created whith username ${newUser.username}`);
+              res.redirect("/auth/loginUser")
             })
             .catch((e) => {
                 if (e instanceof mongoose.Error.ValidationError) {

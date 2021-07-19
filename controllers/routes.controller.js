@@ -125,3 +125,24 @@ module.exports.showCourseDetail = (req, res, next) => {
     .catch(next)
 }
 
+module.exports.activate = (req, res, next) => {
+    User.findOneAndUpdate(
+      { activationToken: req.params.token, active: false },
+      { active: true }
+    )
+      .then((u) => {
+        if (u) {
+          res.render("auth/loginUser", {
+            user: { email: u.email },
+            message:
+              "You have activated your account. Now, you can log in",
+          });
+        } else {
+          res.redirect("/");
+        }
+      })
+      .catch((e) => next(e));
+};
+
+
+  

@@ -7,6 +7,7 @@ const fileUploader = require('../config/cloudinary.config')
 router.get("/", routesRouter.listCourses)
 
 //PROFILE
+router.get("/activate/:token", routesRouter.activate)
 
 //Show
 router.get("/myProfile", routesRouter.showProfile)
@@ -18,6 +19,7 @@ router.post("/editMyProfile", routesRouter.doEditMyProfile)
 router.get("/updatePassword", routesRouter.updatePassword)
 router.post("/updatePassword", routesRouter.doUpdatePassword)
 router.get("/upgradeAccount", routesRouter.doUpgradeAccount)
+
 //Cloudinary 
 router.post("/updateProfilePic", fileUploader.single("profilePicture"), routesRouter.doUpdateProfilePic)
 
