@@ -11,4 +11,10 @@
     <li>{{difficulty}}</li>
     <li>{{address}}</li>
 </ul>
-<button class="btn btn-primary">Join now!</button>
+
+
+{{#if isUserSubscribed}}
+    <a href="/unsubscribe/{{id}}/{{currentUser.id}}"><button class="btn btn-danger">Unsubscribe!</button></a>
+{{else}}
+    <a href="/subscribe/{{id}}/{{currentUser.id}}"><button class="btn btn-primary">Join now!</button></a>
+{{/if}}

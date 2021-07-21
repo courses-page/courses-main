@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
+const Subscription = require("./Subscription.model");
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
 const courseSchema = new Schema({
   title: {
@@ -38,8 +39,22 @@ const courseSchema = new Schema({
   imageUrl: {
     type: String,
     default: "https://media.revistagq.com/photos/5ca5ffcfbda594eb7433e978/master/pass/steven_seagal_8758.png"
-  }
-});
+  },
+
+},{
+  toJSON: {
+  virtuals:true
+},toObject: {
+  virtuals:true
+}}
+);
+
+courseSchema.virtual("subscriptions", {
+  ref: "Subscription",
+  localField: "_id",
+  foreignField: "courseId",
+  justOne: false
+})
 
 const Course = model("Course", courseSchema);
 

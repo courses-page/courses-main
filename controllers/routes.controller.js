@@ -1,5 +1,7 @@
 const User = require("../models/User.model");
 const Course = require("../models/Course.model");
+const Subscription = require("../models/Subscription.model");
+
 const bcrypt = require("bcrypt")
 const fileUploader = require('../config/cloudinary.config')
 
@@ -110,6 +112,7 @@ module.exports.doUpgradeAccount = (req, res, next) => {
 
 module.exports.listCourses = (req, res, next) => {
     Course.find()
+    .populate("companyId")
     .then((courses) => {
         res.render ("index", {coursesList: courses})
     })
@@ -119,8 +122,10 @@ module.exports.listCourses = (req, res, next) => {
 module.exports.showCourseDetail = (req, res, next) => {
     const {id} = req.params
     Course.findById(id)
+    .populate("subscriptions")
     .then((course)=>{
-    res.render("courseDetail", course)
+        const isUserSubscribed = course.subscriptions.some( subscription => subscription.userId.toString() === req.user._id.toString())
+    res.render("courseDetail", {...course.toJSON(), isUserSubscribed})
     })
     .catch(next)
 }
@@ -144,5 +149,37 @@ module.exports.activate = (req, res, next) => {
       .catch((e) => next(e));
 };
 
+module.exports.showCompanyDetail = (req, res, next) => {
+    const {id} = req.params
+    User.findById(id)
+    .then((company)=>{
+    res.render("companyDetail", company)
+    })
+    .catch(next)
+}
 
-  
+module.exports.subscribe = (req, res, next) => {
+    const {userId, courseId} = req.params;
+
+    Subscription.find({userId, courseId})
+        .then((subscriber)=>{
+            if(subscriber.length === 0){
+                Subscription.create({userId, courseId})
+                    .then(()=>{
+                        res.redirect(`/courseDetail/${courseId}`)
+                    })   
+                    .catch(next)
+            } else {
+                res.redirect(`/courseDetail/${courseId}`)
+            }
+        })   
+}
+
+module.exports.unSubscribe = (req, res, next) => {
+    const {userId, courseId} = req.params;
+
+    Subscription.findOneAndDelete({userId, courseId})
+        .then((subscriber)=>{
+            res.redirect(`/courseDetail/${courseId}`)
+            })   
+}

@@ -14,7 +14,7 @@ const userSchema = new Schema({
   },
   companyName: {
     type: String,
-    minlegth: [3, "Company name should be at least 3 characterss long"]
+    minlegth: [3, "Company name should be at least 3 characters long"]
   },
   email: {
     type: String,
@@ -61,6 +61,12 @@ const userSchema = new Schema({
     }
   }
 });
+
+userSchema.virtual("subscriptions", {
+  ref: "Subscription",
+  localField: "_id",
+  foreignField: "userId"
+})
 
 userSchema.pre("save", function(next) {
   if (this.isModified("password")) {

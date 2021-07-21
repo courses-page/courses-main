@@ -15,6 +15,15 @@ const hbs = require("hbs");
 const path = require("path");
 hbs.registerPartials(path.join(__dirname , "/views/partials"));
 
+hbs.registerHelper('ifCond', function(v1, v2, options) {
+    console.log("VARIABLES DEL HELPER:", v1 , v2)
+    if(v1.toString() === v2.toString()) {
+      return options.fn(this);
+    }
+    return options.inverse(this);
+});
+  
+
 const app = express();
 require("./config/session.user.config")(app);
 require("./config/passport.user.config");

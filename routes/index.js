@@ -12,6 +12,7 @@ router.get("/activate/:token", routesRouter.activate)
 //Show
 router.get("/myProfile", routesRouter.showProfile)
 router.get("/courseDetail/:id", routesRouter.showCourseDetail)
+router.get("/companyDetail/:id", routesRouter.showCompanyDetail)
 
 //Edit
 router.get("/editMyProfile", routesRouter.editMyProfile)
@@ -22,5 +23,9 @@ router.get("/upgradeAccount", routesRouter.doUpgradeAccount)
 
 //Cloudinary 
 router.post("/updateProfilePic", fileUploader.single("profilePicture"), routesRouter.doUpdateProfilePic)
+
+//Subscribe
+router.get("/subscribe/:courseId/:userId", routesRouter.subscribe)
+router.get("/unsubscribe/:courseId/:userId", routesRouter.unSubscribe)
 
 module.exports = router;
