@@ -2,7 +2,6 @@
     {
         "title": "Web dev. part time bootcamp",
         "subject": "Computer Science",
-        "companyId": "60f29915674b10f153f4ff48",
         "duration": "1000h",
         "difficulty": "Basic",
         "description": "En este bootcamp os enseñamos a desarrollar páginas web desde cero hasta un nivel profesional, hacemos frotend, backend middleend y lo que tu quieras, agarraos que vienen curvas!",
@@ -12,7 +11,6 @@
     {
         "title": "Machine Learning",
         "subject": "Computer Science",
-        "companyId": "60f29dde3be532fc9cbc2776",
         "duration": "100h",
         "difficulty": "Intermediate",
         "description": "This course provides a broad introduction to machine learning, datamining, and statistical pattern recognition. Topics include: (i) Supervised learning (parametric/non-parametric algorithms, support vector machines, kernels, neural networks). (ii) Unsupervised learning (clustering, dimensionality reduction, recommender systems, deep learning). (iii) Best practices in machine learning (bias/variance theory; innovation process in machine learning and AI). The course will also draw from numerous case studies and applications, so that you'll also learn how to apply learning algorithms to building smart robots (perception, control), text understanding (web search, anti-spam), computer vision, medical informatics, audio, database mining, and other areas.",
@@ -22,7 +20,6 @@
     {
         "title": "Financial Markets",
         "subject": "Business",
-        "companyId": "60f29fae5df27901afa2bf2e",
         "duration": "30h",
         "difficulty": "Basic",
         "description": "An overview of the ideas, methods, and institutions that permit human society to manage risks and foster enterprise.  Emphasis on financially-savvy leadership skills. Description of practices today and analysis of prospects for the future. Introduction to risk management and behavioral finance principles to understand the real-world functioning of securities, insurance, and banking industries.",
@@ -32,7 +29,6 @@
     {
         "title": "Chinese for Beginners",
         "subject": "Languages",
-        "companyId": "60f5dc99aa75aeae3014b4ee",
         "duration": "30h",
         "difficulty": "Basic",
         "description": "This is an ABC Chinese course for beginners, including introduction of phonetics and daily expressions. After taking this class, learners can have a basic understanding of Chinese Mandarin and make basic conversations of daily living such as exchanging personal information, talking about daily arrangements and food, asking about price, introducing the city and the weather, telling your hobbies etc. Selected topics and situations come from real life scenarios and can be used for everyday communications.",

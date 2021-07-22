@@ -1,31 +1,39 @@
 const mongoose = require("mongoose");
 const Course = require("../models/Course.model");
-const data = require("./courses.json");
+const User = require("../models/User.model")
+const courseData = require("./courses.json");
+const userData = require("./users.json");
 
 require('../db/index');
 
-mongoose.connection.once('connected', () => {
-
-let collectionsList = Object.keys(mongoose.connection.collections)
-let promise;
-
-  if(collectionsList.find((collection) => collection === "courses")){
-    promise = mongoose.connection.db.dropCollection( "courses");
-  } else {
-    promise = Promise.resolve()
-  }
-  promise.then(() => {
-        console.log('Database cleared');
-  
-        return Course.insertMany(data)
-      })
-      .catch(e => console.error(e))
-      .finally(() => {
-        mongoose.connection.close()
+function loop(x) {
+  if (x >= 4) {
+    mongoose.connection.close()
           .then(() => console.log('Finish course.seeds.js'))
           .catch(e => console.error(e))
           .finally(() => {
             process.exit(0)
-          })
     })
+    return;
+  } else {
+    // hacer cosas
+  console.log(x)
+  User.create(userData[x])
+  .then((newUser) => {
+    companyId = newUser._id
+    return Course.create({ ...courseData[x], companyId })
+    .then (() => {
+      loop(x + 1);
+    })
+  })
+  }
+}
+
+mongoose.connection.once('connected', () => {
+  mongoose.connection.db.dropDatabase()
+    .then(() => {
+      console.log('Database cleared');
+      loop(0)
+    })
+    .catch(e => console.error(e))
 })

@@ -114,6 +114,7 @@ module.exports.listCourses = (req, res, next) => {
     Course.find()
     .populate("companyId")
     .then((courses) => {
+        console.log(courses)
         res.render ("index", {coursesList: courses})
     })
     .catch(next)
