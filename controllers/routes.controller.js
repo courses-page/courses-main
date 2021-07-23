@@ -114,7 +114,6 @@ module.exports.listCourses = (req, res, next) => {
     Course.find()
     .populate("companyId")
     .then((courses) => {
-        console.log(courses)
         res.render ("index", {coursesList: courses})
     })
     .catch(next)
@@ -189,4 +188,22 @@ module.exports.cantSubscribe = (req, res, next) => {
     const { courseId } = req.params;
 
     res.redirect(`/courseDetail/${courseId}`)
+}
+
+module.exports.publishCourse = (req, res, next) => {
+    res.render(`publishCourseForm`)
+}
+
+module.exports.doPublishCourse = (req, res, next) => {
+    const {title, subject, duration, difficulty, description, address} = req.body;
+    const companyId = req.user.id;
+    let newCourse = {title, subject, duration, difficulty, description, address, companyId};
+
+    if(req.file){
+        newCourse.imageUrl = req.file.path
+    }
+    Course.create(newCourse)
+        .then((course)=>{
+            res.redirect("/")
+        }).catch(next)
 }

@@ -26,12 +26,12 @@ const courseSchema = new Schema({
   difficulty: {
     type: String,
     enum: ['Basic', 'Intermediate', 'Advanced'],
-    required: [true, "Course duration is required"]
+    required: [true, "Course dificulty is required"]
   },
   description: {
     type: String,
     minlength: [40, "Course description is too short"],
-    required: [true, "Course duration is required"]
+    required: [true, "Course description is required"]
   },
   address: {
     type: String

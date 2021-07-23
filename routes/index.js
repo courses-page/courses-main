@@ -21,6 +21,10 @@ router.get("/updatePassword", routesRouter.updatePassword)
 router.post("/updatePassword", routesRouter.doUpdatePassword)
 router.get("/upgradeAccount", routesRouter.doUpgradeAccount)
 
+//Course
+router.get("/publishCourse", routesRouter.publishCourse)
+router.post("/publishCourse",fileUploader.single("imageUrl"), routesRouter.doPublishCourse)
+
 //Cloudinary 
 router.post("/updateProfilePic", fileUploader.single("profilePicture"), routesRouter.doUpdateProfilePic)
 

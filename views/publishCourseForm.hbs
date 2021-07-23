@@ -1,0 +1,75 @@
+<h1>Course creator:</h1>
+
+<div id="userForm">
+  <form class="mt-4" action="/publishCourse" method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="title" class="form-label">Course title</label>
+      <input type="text" class="form-control{{#if errorMessage.title}} is-invalid {{/if}}" id="title" name="title" value="{{userData.title}}">
+    </div>
+
+    <div class="form-group">
+      <label for="subject">Course subject</label>
+      <select class="form-control" id="subject" name="subject" placeholder="">
+        <option disabled selected>-Select an option-</option>
+        <option>Languages</option>
+        <option>Natural Sciences</option>
+        <option>Computer Science</option>
+        <option>Mathematics</option>
+        <option>Business</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="duration">Course duration</label>
+      <select class="form-control" id="duration" name="duration">
+        <option disabled selected>-Select an option-</option>
+        <option>10h</option>
+        <option>30h</option>
+        <option>50h</option>
+        <option>100h</option>
+        <option>200h</option>
+        <option>500h</option>
+        <option>1000h</option>
+      </select>
+    </div>
+
+    <label for="difficulty">Select the course difficulty</label>
+    <div id="difficulty">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="difficulty" id="Basic" value="Basic" checked>
+        <label class="form-check-label" for="Basic">
+          Basic
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="difficulty" id="Intermediate" value="Intermediate" checked>
+        <label class="form-check-label" for="Intermediate">
+          Intermediate
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="difficulty" id="Advanced" value="Advanced" checked>
+        <label class="form-check-label" for="Advanced">
+          Advanced
+        </label>
+      </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="description" class="form-label">Course description:</label>
+        <textarea class="form-control{{#if errorMessage.description}} is-invalid {{/if}}" id="description" name="description" placeholder="Please add a brief description of the new course" value="{{currentUser.description}}" rows="6"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="address" class="form-label">Add a course adress:</label>
+        <textarea class="form-control{{#if errorMessage.address}} is-invalid {{/if}}" id="address" name="address" placeholder="e.g.: Mainstreet 13, New York, 12345, United States" value="{{currentUser.description}}" rows="2"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="imageUrl">Upload a picture that represents your course</label>
+      <input type="file" class="form-control-file" id="imageUrl" name="imageUrl">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Publish!</button>
+  </form>
+</div>
