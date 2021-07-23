@@ -39,19 +39,50 @@
         {{/if}}
     {{/if}}
 
-    <a href="/editMyProfile"><button class="btn btn-secondary mt-4">Edit Profile</button></a>
-        <p class="mt-1"><em>Use this button to edit your profile data and complete your info: e.g. Full name. </em></p>
+    <a href="/editMyProfile"><button class="btn btn-secondary mt-3">Edit Profile</button></a>
+    <p class="mt-1"><em>Use this button to edit your profile data and complete your info: e.g. Full name. </em></p>
+
+    {{#unless currentUser.googleID}}
+        <a href="/updatePassword"><button class="btn btn-danger mt-3">Update your password</button></a>
+    {{/unless}}
     
-    {{#if currentUser.isCompany}}
-        <a href="/publishCourse"><button class="btn btn-warning mt-4">Publish a new course</button></a>
-    {{else}}
+    {{#unless currentUser.isCompany}}
         <a href="/upgradeAccount"><button class="btn btn-warning mt-4">Upgrade to company account</button></a>
         <p class="mt-1"><em>Company accounts can create and publish their courses, but cant subscribe to any courses <span id="warning">(Warning: Once upgraded you will not be able to restore to a student account!!)</span></em></p>
-    {{/if}}
-    
-    {{#unless currentUser.googleID}}
-        <a href="/updatePassword"><button class="btn btn-danger mt-4">Update your password</button></a>
     {{/unless}}
+
+    <hr>
+
+    {{#if currentUser.isCompany}}
+        <h4 class="mt-4">You have published this courses:</h4>
+        <a href="/publishCourse"><button class="btn btn-warning mt-2">Publish a new course</button></a>
+        {{#each coursesArr}}
+            {{> courseCard}}
+        {{/each}}
+    {{else}}
+        <h4>You are subscribed to this courses:</h4>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            {{#each subscriptionsArr as |subscription|}}
+                <div class="col">
+                    <div class="card mt-3">
+                        <a href="/courseDetail/{{subscription.courseId.id}}" style="text-decoration: none; color:black">
+                            <img src="{{subscription.courseId.imageUrl}}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{subscription.courseId.title}}</h5>
+                                <ul>
+                                    <li>{{subscription.courseId.subject}}</li>
+                                    <li>{{subscription.courseId.duration}}</li>
+                                    <li>{{subscription.courseId.difficulty}}</li>
+                                </ul>
+                                <a href="/companyDetail/{{subscription.courseId.companyId.id}}">{{subscription.courseId.companyId.companyName}}</a>
+                                <a href="/courseDetail/{{subscription.courseId.id}}">See more</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    {{/if}}
     
 {{else}}
     <h1>Please log in to see your profile</h1>

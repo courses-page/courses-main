@@ -6,7 +6,35 @@ const bcrypt = require("bcrypt")
 const fileUploader = require('../config/cloudinary.config')
 
 module.exports.showProfile = (req, res, next) => {
-    res.render("myProfile")
+    const currentUserId = req.user.id
+    
+   if (req.user.isCompany) {
+    User.findById(currentUserId)
+    .populate("courses")
+    .then ((company) => {
+        const courses = company.courses
+        console.log(courses)
+        res.render("myProfile", {coursesArr: courses})
+    })
+    .catch(next)
+   } else {
+    User.findById(currentUserId)
+    .populate([
+        {
+          path: 'subscriptions',
+          model: 'Subscription',
+		  populate: {
+		    path: 'courseId',
+			model: 'Course',
+		  }
+        },
+      ])
+    .then ((user) => {
+        const subscriptions = user.subscriptions
+        res.render("myProfile", {subscriptionsArr: subscriptions})
+    })
+    .catch(next)
+   }
 }
 
 
