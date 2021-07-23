@@ -12,9 +12,14 @@
     <li>{{address}}</li>
 </ul>
 
-
-{{#if isUserSubscribed}}
+{{#if currentUser}}
+    {{#if isUserSubscribed}}
     <a href="/unsubscribe/{{id}}/{{currentUser.id}}"><button class="btn btn-danger">Unsubscribe!</button></a>
 {{else}}
     <a href="/subscribe/{{id}}/{{currentUser.id}}"><button class="btn btn-primary">Join now!</button></a>
+{{/if}}
+{{else}}
+    {{#unless currentUser}}
+        <p><a href="/auth/loginuser">Login</a> to be able to subscribe to this course</p>
+    {{/unless}}
 {{/if}}

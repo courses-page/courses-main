@@ -163,17 +163,17 @@ module.exports.subscribe = (req, res, next) => {
     const {userId, courseId} = req.params;
 
     Subscription.find({userId, courseId})
-        .then((subscriber)=>{
-            if(subscriber.length === 0){
-                Subscription.create({userId, courseId})
-                    .then(()=>{
-                        res.redirect(`/courseDetail/${courseId}`)
-                    })   
-                    .catch(next)
-            } else {
-                res.redirect(`/courseDetail/${courseId}`)
-            }
-        })   
+    .then((subscriber)=>{
+        if(subscriber.length === 0){
+            Subscription.create({userId, courseId})
+                .then(()=>{
+                    res.redirect(`/courseDetail/${courseId}`)
+                })   
+                .catch(next)
+        } else {
+            res.redirect(`/courseDetail/${courseId}`)
+        }
+    })  
 }
 
 module.exports.unSubscribe = (req, res, next) => {
@@ -183,4 +183,10 @@ module.exports.unSubscribe = (req, res, next) => {
         .then((subscriber)=>{
             res.redirect(`/courseDetail/${courseId}`)
             })   
+}
+
+module.exports.cantSubscribe = (req, res, next) => {
+    const { courseId } = req.params;
+
+    res.redirect(`/courseDetail/${courseId}`)
 }

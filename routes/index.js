@@ -27,5 +27,6 @@ router.post("/updateProfilePic", fileUploader.single("profilePicture"), routesRo
 //Subscribe
 router.get("/subscribe/:courseId/:userId", routesRouter.subscribe)
 router.get("/unsubscribe/:courseId/:userId", routesRouter.unSubscribe)
+router.get("/subscribe/:courseId/", routesRouter.cantSubscribe)
 
 module.exports = router;
