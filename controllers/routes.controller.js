@@ -55,8 +55,6 @@ module.exports.doEditMyProfile = (req, res, next) => {
             let errorMessageObj = {errorMessage: {email: "That email is already in use, choose another!"}}
             res.render("editMyProfile", errorMessageObj)
         } else if (e instanceof mongoose.Error.ValidationError) {
-            console.log(e.errors.username)
-            console.log("BODYYY: ", req.body)
             res.render("editMyProfile", { user: req.body, errors: e.errors })
         } else {
         next(e)
@@ -185,13 +183,44 @@ module.exports.listCourses = (req, res, next) => {
 }
 
 module.exports.showCourseDetail = (req, res, next) => {
-    const {id} = req.params
+    const {id} = req.params;
+    const companyId = req.user.id;
+    let isCreator
+
     Course.findById(id)
     .populate("subscriptions")
     .then((course)=>{
+        if (course.companyId == companyId) {
+            isCreator = true
+        }
         const isUserSubscribed = course.subscriptions.some( subscription => subscription.userId.toString() === req.user._id.toString())
-    res.render("courseDetail", {...course.toJSON(), isUserSubscribed})
+    res.render("courseDetail", {...course.toJSON(), isUserSubscribed, isCreator})
     })
+    .catch(next)
+}
+
+module.exports.deleteCourse = (req, res, next) => {
+    const {id} = req.params;
+
+    Course.findByIdAndDelete(id)
+    .populate("subscriptions")
+    .then((course) => {
+        return Subscription.find({courseId: id})
+         .then((subscriptions) => {
+            function loop(x) {
+                if (x >= subscriptions.length) {
+                    res.redirect("/");
+                    return;
+                } else {
+                Subscription.findOneAndDelete({courseId: id})
+                .then(() => {
+                    loop(x + 1);
+                })
+                }
+            }
+            loop(0);
+         })
+        })
     .catch(next)
 }
 
@@ -267,8 +296,15 @@ module.exports.doPublishCourse = (req, res, next) => {
     if(req.file){
         newCourse.imageUrl = req.file.path
     }
+
     Course.create(newCourse)
         .then((course)=>{
             res.redirect("/")
-        }).catch(next)
+        }).catch((e) => {
+            if (e instanceof mongoose.Error.ValidationError) {
+                res.render("publishCourseForm", { user: req.body, errors: e.errors })
+            } else {
+            next(e)
+            }
+        })
 }

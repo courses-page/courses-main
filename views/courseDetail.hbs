@@ -16,7 +16,14 @@
     {{#if isUserSubscribed}}
     <a href="/unsubscribe/{{id}}/{{currentUser.id}}"><button class="btn btn-danger">Unsubscribe!</button></a>
 {{else}}
-    <a href="/subscribe/{{id}}/{{currentUser.id}}"><button class="btn btn-primary">Join now!</button></a>
+    {{#if currentUser.isCompany}}
+        {{#if isCreator}}
+            <a href="/deletecourse/{{id}}"><button class="btn btn-danger">Delete your course</button></a>
+            <p><em>Be careful, the subscriptors of this course will loose access!</em></p>
+        {{/if}}
+    {{else}}
+        <a href="/subscribe/{{id}}/{{currentUser.id}}"><button class="btn btn-primary">Join now!</button></a>
+    {{/if}}
 {{/if}}
 {{else}}
     {{#unless currentUser}}

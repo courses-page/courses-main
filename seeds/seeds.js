@@ -16,7 +16,6 @@ function loop(x) {
     })
     return;
   } else {
-    // hacer cosas
   console.log(`Course and company number ${x+1} created`)
   User.create(userData[x])
   .then((newUser) => {

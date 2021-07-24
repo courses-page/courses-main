@@ -24,6 +24,7 @@ router.get("/upgradeAccount", routesRouter.doUpgradeAccount)
 //Course
 router.get("/publishCourse", routesRouter.publishCourse)
 router.post("/publishCourse",fileUploader.single("imageUrl"), routesRouter.doPublishCourse)
+router.get("/deletecourse/:id", routesRouter.deleteCourse)
 
 //Cloudinary 
 router.post("/updateProfilePic", fileUploader.single("profilePicture"), routesRouter.doUpdateProfilePic)

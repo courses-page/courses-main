@@ -4,7 +4,12 @@
   <form class="mt-4" action="/publishCourse" method="POST" enctype="multipart/form-data">
     <div class="mb-3">
       <label for="title" class="form-label">Course title</label>
-      <input type="text" class="form-control{{#if errorMessage.title}} is-invalid {{/if}}" id="title" name="title" value="{{userData.title}}">
+      <input type="text" class="form-control{{#if errors.title}} is-invalid {{/if}}" id="title" name="title" value="{{user.title}}">
+       {{#if errors.title}}
+          <div id="validationServerUsernameFeedback" class="invalid-feedback">
+            {{errors.title.properties.message}}
+          </div>
+       {{/if}}
     </div>
 
     <div class="form-group">
@@ -57,12 +62,22 @@
 
     <div class="mb-3">
         <label for="description" class="form-label">Course description:</label>
-        <textarea class="form-control{{#if errorMessage.description}} is-invalid {{/if}}" id="description" name="description" placeholder="Please add a brief description of the new course" value="{{currentUser.description}}" rows="6"></textarea>
+        <textarea class="form-control{{#if errors.description}} is-invalid {{/if}}" id="description" name="description" placeholder="Please add a brief description of the new course" rows="6">{{user.description}}</textarea>
+          {{#if errors.description}}
+            <div id="validationServerUsernameFeedback" class="invalid-feedback">
+              {{errors.description.properties.message}}
+            </div>
+        {{/if}}
     </div>
 
     <div class="mb-3">
-        <label for="address" class="form-label">Add a course adress:</label>
-        <textarea class="form-control{{#if errorMessage.address}} is-invalid {{/if}}" id="address" name="address" placeholder="e.g.: Mainstreet 13, New York, 12345, United States" value="{{currentUser.description}}" rows="2"></textarea>
+        <label for="address" class="form-label">Add a course address:</label>
+        <textarea class="form-control{{#if errors.address}} is-invalid {{/if}}" id="address" name="address" placeholder="e.g.: Mainstreet 13, New York, 12345, United States" rows="2">{{user.description}}</textarea>
+        {{#if errors.address}}
+          <div id="validationServerUsernameFeedback" class="invalid-feedback">
+            {{errors.address.properties.message}}
+          </div>
+       {{/if}}
     </div>
 
     <div class="form-group">
