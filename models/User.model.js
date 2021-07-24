@@ -14,7 +14,7 @@ const userSchema = new Schema({
   },
   companyName: {
     type: String,
-    minlegth: [3, "Company name should be at least 3 characters long"]
+    minlength: [3, "Company name is too short"]
   },
   email: {
     type: String,
@@ -30,7 +30,8 @@ const userSchema = new Schema({
     minlength: [8, "Password is too short"]
   },
   fullName: {
-    type: String
+    type: String,
+    minlength: [4, "Full name is too short"]
   },
   imageUrl: {
     type: String,
@@ -38,7 +39,7 @@ const userSchema = new Schema({
   },
   description: {
     type: String,
-    minlegth: [25, "Description should be at least 25 characters long"]
+    minlength: [25, "Description should be at least 25 characters long"]
   },
   isCompany: {
     type: Boolean,

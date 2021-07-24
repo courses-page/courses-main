@@ -2,10 +2,10 @@
   {{#if currentUser.isCompany}}
       <div class="mb-3">
         <label for="companyName" class="form-label">Company Name:</label>
-        <input type="text" class="form-control{{#if errorMessage.companyName}} is-invalid {{/if}}" id="companyName" name="companyName" placeholder="Modify your username" value="{{currentUser.companyName}}">
-        {{#if errorMessage.companyName}}
+        <input type="text" class="form-control{{#if errors.companyName}} is-invalid {{/if}}" id="companyName" name="companyName" placeholder="Modify your username" value="{{#if user.companyName}}{{user.companyName}}{{else}}{{currentUser.companyName}}{{/if}}">
+        {{#if errors.companyName}}
           <div id="validationServerUsernameFeedback" class="invalid-feedback">
-            {{errorMessage.companyName.properties.message}}
+            {{errors.companyName.properties.message}}
           </div>
         {{/if}}
       </div>
@@ -20,20 +20,20 @@
       </div>
       <div class="mb-3">
         <label for="description" class="form-label">Company description:</label>
-        <textarea class="form-control{{#if errorMessage.description}} is-invalid {{/if}}" id="description" name="description" placeholder="Add a brief description of your company" value="{{currentUser.description}}" rows="6"></textarea>
-        {{#if errorMessage.description}}
+        <textarea class="form-control{{#if errors.description}} is-invalid {{/if}}" id="description" name="description" placeholder="Add a brief description of your company" rows="6">{{#if user.description}}{{user.description}}{{else}}{{currentUser.description}}{{/if}}</textarea>
+        {{#if errors.description}}
           <div id="validationServerUsernameFeedback" class="invalid-feedback">
-            {{errorMessage.description}}
+            {{errors.description}}
           </div>
         {{/if}}
       </div>
     {{else}}
       <div class="mb-3">
         <label for="username" class="form-label">Username:</label>
-        <input type="text" class="form-control{{#if errorMessage.username}} is-invalid {{/if}}" id="username" name="username" placeholder="Modify your username" value="{{currentUser.username}}">
-        {{#if errorMessage.username}}
+        <input type="text" class="form-control{{#if errors.username}} is-invalid {{/if}}" id="username" name="username" placeholder="Modify your username" value="{{#if user.username}}{{user.username}}{{else}}{{currentUser.username}}{{/if}}">
+        {{#if errors.username}}
           <div id="validationServerUsernameFeedback" class="invalid-feedback">
-            {{errorMessage.username.properties.message}}
+            {{errors.username.properties.message}}
           </div>
         {{/if}}
       </div>
@@ -48,14 +48,13 @@
       </div>
       <div class="mb-3">
         <label for="fullName" class="form-label">Full name:</label>
-        <input type="text" class="form-control{{#if errorMessage.fullName}} is-invalid {{/if}}" id="fullName" name="fullName" placeholder="Add your full name" value="{{currentUser.fullName}}">
-        {{#if errorMessage.fullName}}
+        <input type="text" class="form-control{{#if errors.fullName}} is-invalid {{/if}}" id="fullName" name="fullName" placeholder="Add your full name" value="{{#if user.fullName}}{{user.fullName}}{{else}}{{currentUser.fullName}}{{/if}}">
+        {{#if errors.fullName}}
           <div id="validationServerUsernameFeedback" class="invalid-feedback">
-            {{errorMessage.fullName}}
+            {{errors.fullName}}
           </div>
         {{/if}}
       </div>
   {{/if}}
   <button type="submit" class="btn btn-primary">Update!</button>
 </form>
-
