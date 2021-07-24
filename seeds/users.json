@@ -5,7 +5,8 @@
         "password": "ironhack",
         "description": "Únete a nuestro bootcamp en Desarrollo Web. Consigue las habilidades prácticas que necesitas para lograr un trabajo en el sector tecnológico. Aprende HTML, CSS, Javascript, React y mucho más. Conviértete en desarrollador full-stack en solo 9 semanas a tiempo completo o 24 semanas a tiempo parcial (no es necesaria experiencia en IT). Puedes aprender en persona o en remoto, encuentra aquí toda la información.",
         "isCompany": true,
-        "active": true
+        "active": true,
+        "imageUrl": "https://res.cloudinary.com/leakko/image/upload/v1627115649/courses-web/1_NFwzjjur2atssvIlGia0AQ_skzsep.jpg"
     },
     {
         "companyName": "Stanford",
@@ -13,7 +14,8 @@
         "password": "stanford",
         "description": "Stanford University, officially Leland Stanford Junior University, is a private research university in Stanford, California. The campus occupies 8,180 acres, among the largest in the United States, and enrolls over 17,000 students. Stanford is ranked among the best universities in the world by academic publications ",
         "isCompany": true,
-        "active": true
+        "active": true,
+        "imageUrl": "https://res.cloudinary.com/leakko/image/upload/v1627115335/courses-web/gn1s4u9gvjdtlo11m6m6_jk4ddq.png"
     },
     {
         "companyName": "Yale",
@@ -21,7 +23,8 @@
         "password": "yaleyale",
         "description": "Since its founding in 1701, Yale has been dedicated to expanding and sharing knowledge, inspiring innovation, and preserving cultural and scientific information for future generations. ",
         "isCompany": true,
-        "active": true
+        "active": true,
+        "imageUrl": "https://res.cloudinary.com/leakko/image/upload/v1627115335/courses-web/lf7uszeaz2npddbuqtoy_qesnpz.jpg"
     },
     {
         "companyName": "Peking",
@@ -29,7 +32,8 @@
         "password": "pekingpeking",
         "description": "Peking University is a comprehensive and national key university. The campus, known as Yan Yuan（the garden of Yan）, is situated at Haidian District in the western suburb of Beijing, with a total area of 2,743,532 square metres (or 274 hectares). It stands near to the Yuanmingyuan Garden and the Summer Palace. Peking University is proud of its outstanding faculty, including 48 members of the Chinese Academy of Sciences (CAS), 9 members of the Chinese Academy of Engineering (CAE), and 21 members of the Third World Academy of Sciences (TWAS). ",
         "isCompany": true,
-        "active": true
+        "active": true,
+        "imageUrl": "https://res.cloudinary.com/leakko/image/upload/v1627115335/courses-web/uz1d2bampzjll5ucc6sj_rrcbop.png"
     },
     {
         "username": "12345678",
