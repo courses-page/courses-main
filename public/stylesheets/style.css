@@ -1,5 +1,8 @@
+
+
+/* GENERAL */
+
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -17,4 +20,89 @@ h1 {
 
 .visible{
   display: block;
+}
+
+.primary-bg {
+  /* background-color: #3BA1F2; */
+  background-image: url("/images/blue-bg.jpg");
+}
+
+.white {
+  color: white;
+}
+
+/* NAVBAR */
+
+#navbar-id {
+  height: 15vh;
+  z-index: 100!important;
+}
+
+.nav-item {
+  font-size: 1.2rem;
+}
+
+.custom-toggler .navbar-toggler-icon {
+  color: #F0A42E
+}
+
+/* LANDING PAGE */
+
+#landing-info {
+  color: white;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#landing-info-son {
+  flex-direction: column;
+}
+
+nav {
+  z-index: 100!important;
+}
+
+#landing-heading {
+  width: 95%;
+  text-shadow: 2px 2px #444040;
+}
+
+.heading-letters {
+  font-family: 'Anton', sans-serif;
+}
+
+#orange-frame {
+  width: 70%;
+  height: 90%;
+}
+
+#carousel {
+  margin: 5vh auto;
+  font-family: 'Anton', sans-serif;
+}
+
+#discover {
+  text-align: center;
+  margin-bottom: 2vh;
+}
+
+#carousel-row {
+  justify-content: center;
+}
+
+/* HELPERS */
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.details-color {
+  color:#FFBD57
+}
+
+.details-color-border {
+  border: 10px solid #FFBD57;
 }
