@@ -7,7 +7,7 @@ const userData = require("./users.json");
 require('../db/index');
 
 function loop(x) {
-  if (x >= 4) {
+  if (x > userData.length - 1) {
     mongoose.connection.close()
           .then(() => console.log('Finish course.seeds.js'))
           .catch(e => console.error(e))
@@ -15,7 +15,7 @@ function loop(x) {
             process.exit(0)
     })
     return;
-  } else {
+  } else if (x < courseData.length){
   console.log(`Course and company number ${x+1} created`)
   User.create(userData[x])
   .then((newUser) => {
@@ -25,6 +25,15 @@ function loop(x) {
       loop(x + 1);
     })
   })
+  } else {
+    User.create(userData[x])
+    .then((newUser) => {
+      console.log(`Regular user number ${x+1} created`);
+      loop(x + 1);
+    })
+    .catch((e) => {
+      console.error(e);
+    })
   }
 }
 

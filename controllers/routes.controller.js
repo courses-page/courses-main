@@ -184,7 +184,11 @@ module.exports.listCourses = (req, res, next) => {
 
 module.exports.showCourseDetail = (req, res, next) => {
     const {id} = req.params;
-    const companyId = req.user.id;
+
+    let companyId = false;
+    if(req.user) {
+         companyId = req.user.id;
+    }
     let isCreator
 
     Course.findById(id)
@@ -193,7 +197,14 @@ module.exports.showCourseDetail = (req, res, next) => {
         if (course.companyId == companyId) {
             isCreator = true
         }
-        const isUserSubscribed = course.subscriptions.some( subscription => subscription.userId.toString() === req.user._id.toString())
+
+        let isUserSubscribed
+
+        if(req.user) {
+            isUserSubscribed = course.subscriptions.some( subscription => subscription.userId.toString() === req.user._id.toString())
+        } else {
+            isUserSubscribed = false;
+        }
     res.render("courseDetail", {...course.toJSON(), isUserSubscribed, isCreator})
     })
     .catch(next)
