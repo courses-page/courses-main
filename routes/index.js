@@ -4,7 +4,8 @@ const isAuth = require("../middlewares/isAuth.middleware")
 const fileUploader = require('../config/cloudinary.config')
 
 /* GET home page */
-router.get("/", routesRouter.listCourses)
+router.get("/", routesRouter.landingPage)
+router.get("/coursesOffer", routesRouter.listCourses)
 
 //PROFILE
 router.get("/activate/:token", routesRouter.activate)

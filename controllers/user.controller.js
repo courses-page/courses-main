@@ -76,5 +76,5 @@ module.exports.doLoginGoogle = (req, res, next) => {
 
 module.exports.logout = (req, res, next) => {
     req.logout();
-    res.redirect("/")
+    res.redirect("/coursesOffer")
 }

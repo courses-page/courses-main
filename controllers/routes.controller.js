@@ -6,6 +6,14 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt")
 const fileUploader = require('../config/cloudinary.config')
 
+module.exports.landingPage = (req, res, next) => {
+    if (req.user) {
+        res.redirect("/coursesOffer")
+    } else {
+        res.render("landingPage")
+    }
+}
+
 module.exports.showProfile = (req, res, next) => {
     const currentUserId = req.user.id
     
@@ -220,7 +228,7 @@ module.exports.deleteCourse = (req, res, next) => {
          .then((subscriptions) => {
             function loop(x) {
                 if (x >= subscriptions.length) {
-                    res.redirect("/");
+                    res.redirect("/coursesOffer");
                     return;
                 } else {
                 Subscription.findOneAndDelete({courseId: id})
@@ -248,7 +256,7 @@ module.exports.activate = (req, res, next) => {
                 "You have activated your account. Now, you can log in",
             });
         } else {
-            res.redirect("/");
+            res.redirect("/coursesOffer");
         }
         })
         .catch((e) => next(e));
@@ -310,7 +318,7 @@ module.exports.doPublishCourse = (req, res, next) => {
 
     Course.create(newCourse)
         .then((course)=>{
-            res.redirect("/")
+            res.redirect("/coursesOffer")
         }).catch((e) => {
             if (e instanceof mongoose.Error.ValidationError) {
                 res.render("publishCourseForm", { user: req.body, errors: e.errors })
