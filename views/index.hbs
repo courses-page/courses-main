@@ -1,7 +1,7 @@
 
-<div class="container mt-4">
-    <h1 class="mb-5">Courses on offer:</h1>
-    <div class="row row-cols-1 row-cols-md-2 g-4"></div>
+<div class="container mt-4 d-flex flex-column flex-wrap">
+    <h1 class="mb-3 text-center header-preset">Courses on offer</h1>
+    <div class="row justify-content-center justify-content-sm-start">
     {{#each coursesList}}
         {{> courseCard}}
     {{/each}}

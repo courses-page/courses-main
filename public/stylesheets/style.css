@@ -1,4 +1,5 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
 /* GENERAL */
 
@@ -93,6 +94,12 @@ nav {
   width: 90%;
 }
 
+/* INDEX */
+.card-image-size{
+  height: 30vh;
+  object-fit: cover;
+}
+
 /* HELPERS */
 
 .center {
@@ -107,4 +114,40 @@ nav {
 
 .details-color-border {
   border: 10px solid #FFBD57;
+}
+.header-preset{
+  font-family: 'Anton', sans-serif;
+  font-size: 2rem;
+  font-weight: 500;
+  text-shadow: 2px 2px #444040;
+  color:#FFBD57
+}
+.button-text{
+  color: 
+  #d47313
+  
+}
+.no-style{
+  list-style-type: none;
+}
+.course-info{
+  font-size: 1rem;
+}
+.button-orange{
+  background-color:#FFBD57;
+  border-color: #FFBD57;
+  color: black;
+}
+.button-blue{
+  background-color:#4EB7F0;
+  border-color: #4EB7F0;
+  color: black;
+}
+.card-styling{
+  
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+  transition: 0.3s;  
+}
+.card-styling:hover {
+  box-shadow: 0 12px 24px 0 rgba(0,0,0,0.4);
 }
