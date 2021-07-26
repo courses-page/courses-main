@@ -68,7 +68,7 @@ nav {
   text-shadow: 2px 2px #444040;
 }
 
-.heading-letters {
+.heading-font {
   font-family: 'Anton', sans-serif;
 }
 
@@ -79,7 +79,6 @@ nav {
 
 #carousel {
   margin: 5vh auto;
-  font-family: 'Anton', sans-serif;
 }
 
 #discover {
