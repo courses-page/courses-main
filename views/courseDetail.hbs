@@ -1,32 +1,37 @@
-<h1 class="mt-4">Course Information:</h1>
+<div class="m-4 text-center d-flex flex-column align-items-center">
+    <h1 class="header-preset">Course Information:</h1>
 
-<img src="{{imageUrl}}" style="width: 75vw;">
-<h2 class="mt-2">{{title}}</h2>
-<p>{{description}}</p>
+    <img src="{{imageUrl}}" style="width: 50vw;">
+    <h2 class="mt-2">{{title}}</h2>
+    <p>{{description}}</p>
 
-<h4>Course details:</h4>
-<ul>
-    <li>{{subject}}</li>
-    <li>{{duration}}</li>
-    <li>{{difficulty}}</li>
-    <li>{{address}}</li>
-</ul>
 
-{{#if currentUser}}
-    {{#if isUserSubscribed}}
-    <a href="/unsubscribe/{{id}}/{{currentUser.id}}"><button class="btn btn-danger">Unsubscribe!</button></a>
-{{else}}
-    {{#if currentUser.isCompany}}
-        {{#if isCreator}}
-            <a href="/deletecourse/{{id}}"><button class="btn btn-danger">Delete your course</button></a>
-            <p><em>Be careful, the subscriptors of this course will loose access!</em></p>
-        {{/if}}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title"><strong>Course details:</strong></h5>
+                <p><strong>Subject:</strong> {{subject}}</p>
+                <p><strong>Duration:</strong> {{duration}}</p>
+                <p><strong>Difficulty:</strong> {{difficulty}}</p>
+                <p><strong>Address:</strong> {{address}}</p>
+        </div>
+    </div>
+
+    {{#if currentUser}}
+        {{#if isUserSubscribed}}
+        <a href="/unsubscribe/{{id}}/{{currentUser.id}}"><button class="btn btn-danger">Unsubscribe!</button></a>
     {{else}}
-        <a href="/subscribe/{{id}}/{{currentUser.id}}"><button class="btn btn-primary">Join now!</button></a>
+        {{#if currentUser.isCompany}}
+            {{#if isCreator}}
+                <a href="/deletecourse/{{id}}"><button class="btn btn-danger mt-4">Delete your course</button></a>
+                <p class="mt-2"><em>Be careful! If a course is deleted people subscribed to it will loose access to it's contents!</em></p>
+            {{/if}}
+        {{else}}
+            <a href="/subscribe/{{id}}/{{currentUser.id}}"><button class="btn button-orange mt-4">Join now!</button></a>
+        {{/if}}
     {{/if}}
-{{/if}}
-{{else}}
-    {{#unless currentUser}}
-        <p><a href="/auth/loginuser">Login</a> to be able to subscribe to this course</p>
-    {{/unless}}
-{{/if}}
+    {{else}}
+        {{#unless currentUser}}
+            <p class="mt-4"><a href="/auth/loginuser">Login</a> to be able to subscribe to this course</p>
+        {{/unless}}
+    {{/if}}
+</div>

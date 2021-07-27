@@ -1,5 +1,15 @@
-<h1>{{companyName}}</h1>
-<h2>Company email: {{email}}</h2>
-
-<p>{{description}}</p>
-
+<div class="row justify-content-center justify-content-sm-center mt-4">
+    <div class="col-10 row justify-content-center justify-content-sm-start">
+        <div class="card text-dark bg-light h-100 card-styling">
+            <div class="card-header"><h2 class="card-title text-center"><strong>{{companyName}}</strong></h2>
+                <div class="text-center">
+                    <img src="{{imageUrl}}" class="card-img-top card-image-size w-auto" alt="...">
+                </div>
+                <div class="card-body d-flex flex-column align-items-center">
+                    <p class="text-center">{{description}}</p>
+                    <h3 class="text-center">Contact: {{email}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

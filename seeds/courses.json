@@ -34,5 +34,32 @@
         "description": "This is an ABC Chinese course for beginners, including introduction of phonetics and daily expressions. After taking this class, learners can have a basic understanding of Chinese Mandarin and make basic conversations of daily living such as exchanging personal information, talking about daily arrangements and food, asking about price, introducing the city and the weather, telling your hobbies etc. Selected topics and situations come from real life scenarios and can be used for everyday communications.",
         "address": "5 Yiheyuan Rd, Haidian Qu, Beijing Shi, China, 100871",
         "imageUrl": "https://cdn1.i-scmp.com/sites/default/files/styles/1200x800/public/2015/02/25/beijinglanguageuni.jpg?itok=AI2hit4D"
+    },
+    {
+        "title": "Introduction to labour law",
+        "subject": "Business",
+        "duration": "200h",
+        "difficulty": "Basic",
+        "description": "This course introduces students to the basic concepts of international labour law. This basic course is designed for a wide audience: for people interested in labour law, human rights, corporate social responsibility, social policy, labour management and the functioning of international organizations. Furthermore, this course will also pave the way for more in-depth study of other subjects related to international, social and labour law.",
+        "address": "University Embankment, 7/9, St Petersburg, Rusia, 199034",
+        "imageUrl": "https://www.assignmentpoint.com/wp-content/uploads/2020/09/International-Labor-Law.jpg"
+    },
+    {
+        "title": "Advanced Digital Marketing Techniques",
+        "subject": "Law",
+        "duration": "100h",
+        "difficulty": "Advanced",
+        "description": "Further develop your marketing skills with one of the most comprehensive digital marketing courses available. We'll cover SEO, YouTube Marketing, Facebook Marketing, Google Adwords, Google Analytics and more!",
+        "address": "Plaza de Carlos Trías Bertrán, 4, 28020 Madrid",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV4ZW1TWpHNh4OpYAyWQXoJPAupE1pq3WMNA&usqp=CAU"
+    },
+    {
+        "title": "Fine Arts",
+        "subject": "Arts",
+        "duration": "50h",
+        "difficulty": "Intermediate",
+        "description": "FThe IED Diploma in Fine Arts turns the student into an artist 3.0 and 360º, with training based on developing projects in diverse areas of plastic and visual arts. The hybridisation between disciplines has been introduced into a training programme that offers an academic perspective, but one which is connected to the context of today's professional world, formats, media, and what is to come.",
+        "address": "Palacio de Altamira, Calle de la Flor Alta, 8, 28004 Madri",
+        "imageUrl": "https://assets.ied.it/wp-content/uploads/sites/4/2015/04/588x588_IEDMaster_IEDMadrid_0-588x560.jpg"
     }
 ]

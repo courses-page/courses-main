@@ -151,3 +151,11 @@ nav {
 .card-styling:hover {
   box-shadow: 0 12px 24px 0 rgba(0,0,0,0.4);
 }
+
+.form-styling{
+  width: 60vw;
+  background-color:#F1F3F4;
+  border-color: #969697;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+}

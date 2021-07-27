@@ -9,7 +9,7 @@
         "imageUrl": "https://res.cloudinary.com/leakko/image/upload/v1627115649/courses-web/1_NFwzjjur2atssvIlGia0AQ_skzsep.jpg"
     },
     {
-        "companyName": "Stanford",
+        "companyName": "Stanford Univ.",
         "email": "stanford@stanford.com",
         "password": "stanford",
         "description": "Stanford University, officially Leland Stanford Junior University, is a private research university in Stanford, California. The campus occupies 8,180 acres, among the largest in the United States, and enrolls over 17,000 students. Stanford is ranked among the best universities in the world by academic publications ",
@@ -18,7 +18,7 @@
         "imageUrl": "https://res.cloudinary.com/leakko/image/upload/v1627115335/courses-web/gn1s4u9gvjdtlo11m6m6_jk4ddq.png"
     },
     {
-        "companyName": "Yale",
+        "companyName": "Yale Univ.",
         "email": "yale@yale.com",
         "password": "yaleyale",
         "description": "Since its founding in 1701, Yale has been dedicated to expanding and sharing knowledge, inspiring innovation, and preserving cultural and scientific information for future generations. ",
@@ -27,13 +27,40 @@
         "imageUrl": "https://res.cloudinary.com/leakko/image/upload/v1627115335/courses-web/lf7uszeaz2npddbuqtoy_qesnpz.jpg"
     },
     {
-        "companyName": "Peking",
+        "companyName": "Peking Univ.",
         "email": "peking@peking.com",
         "password": "pekingpeking",
         "description": "Peking University is a comprehensive and national key university. The campus, known as Yan Yuan（the garden of Yan）, is situated at Haidian District in the western suburb of Beijing, with a total area of 2,743,532 square metres (or 274 hectares). It stands near to the Yuanmingyuan Garden and the Summer Palace. Peking University is proud of its outstanding faculty, including 48 members of the Chinese Academy of Sciences (CAS), 9 members of the Chinese Academy of Engineering (CAE), and 21 members of the Third World Academy of Sciences (TWAS). ",
         "isCompany": true,
         "active": true,
         "imageUrl": "https://res.cloudinary.com/leakko/image/upload/v1627244103/courses-web/Fully-Funded-Yenching-Postgraduate-Scholarship-at-Peking-University-China-1_ftkbtn.jpg"
+    },
+    {
+        "companyName": "Petersburg Univ.",
+        "email": "St.Petersburg@St.Petersburg.com",
+        "password": "St.Petersburg",
+        "description": "St Petersburg University is the first university in Russia and a world-leading centre of science and education. With a history dating back to 1724, the University is the oldest institution of higher education in Russia. Today, SPbU successfully combines tradition and innovation, being one of the leading international centres of education, science and culture. It is ranked among the top 300 universities around the world and in second place in Eastern Europe and Central Asia according to the QS Rankings. The University is also ranked in second place in Russia in the QS Graduate Employability Ranking. It is the best in Russia for Employer-Student connections.",
+        "isCompany": true,
+        "active": true,
+        "imageUrl": "https://pbs.twimg.com/profile_images/1132251780/SPbGU_Logo_400x400.jpg"
+    },
+    {
+        "companyName": "IM Digital",
+        "email": "IMDigital@IMDigital.com",
+        "password": "IMDigital",
+        "description": "Nacimos en 2008 cuando las empresas recién comenzaban a poner en marcha proyectos digitales y estrategias de marketing digital y se enfrentaban a la realidad de una escasez de profesionales digitales capacitados, lo que multiplicó su demanda. Con el objetivo de profesionalizar un sector todavía en construcción, decidimos crear una Digital Business School que diera solución a la necesidad de una formación de calidad en el área, donde los conocimientos más relevantes y avanzados cimentaran el futuro de una nueva generación de profesionales digitales altamente capacitados que abrieron camino en el Alto Rendimiento Digital.",
+        "isCompany": true,
+        "active": true,
+        "imageUrl": "data:image/png;base64,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"
+    },
+    {
+        "companyName": "IED",
+        "email": "IED@IED.com",
+        "password": "Institutoeuropeodidesign",
+        "description": "El IED es una institución educativa en todas las disciplinas del diseño, la comunicación visual, la moda y el management. Actualmente es un gran network internacional de origen italiano y que nació en 1966 gracias a la feliz intuición de Francesco Morelli. El Istituto Europeo di Design es, sobre todo, un sistema formativo en evolución. Un verdadero laboratorio capaz de pensar y reinventarse día a día. Su misión es clara y precisa: ofrecer a los jóvenes creativos una formación completa, teórica y práctica, en definitiva una “Cultura del Proyecto” que les acompañe durante toda la vida.",
+        "isCompany": true,
+        "active": true,
+        "imageUrl": "data:image/png;base64,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"
     },
     {
         "username": "12345678",
