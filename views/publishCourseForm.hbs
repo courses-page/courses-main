@@ -1,90 +1,98 @@
-<h1>Course creator:</h1>
+<div class="container">
+  <div class="row flex-column justify-content-center align-content-center">
+    <div class="col col-sm-8">
+      <div class="d-flex justify-content-center">
+        <h1 class="mt-4 header-preset" style="font-size: 2.5rem;">Course creator</h1>
+      </div>
 
-<div id="userForm">
-  <form class="mt-4" action="/publishCourse" method="POST" enctype="multipart/form-data">
-    <div class="mb-3">
-      <label for="title" class="form-label">Course title</label>
-      <input type="text" class="form-control{{#if errors.title}} is-invalid {{/if}}" id="title" name="title" value="{{user.title}}">
-       {{#if errors.title}}
-          <div id="validationServerUsernameFeedback" class="invalid-feedback">
-            {{errors.title.properties.message}}
+      <div id="userForm">
+        <form class="mt-4" action="/publishCourse" method="POST" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label for="title" class="form-label">Course title</label>
+            <input type="text" class="form-control{{#if errors.title}} is-invalid {{/if}}" id="title" name="title" value="{{user.title}}">
+            {{#if errors.title}}
+                <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                  {{errors.title.properties.message}}
+                </div>
+            {{/if}}
           </div>
-       {{/if}}
-    </div>
 
-    <div class="form-group">
-      <label for="subject">Course subject</label>
-      <select class="form-control" id="subject" name="subject" placeholder="">
-        <option disabled selected>-Select an option-</option>
-        <option>Languages</option>
-        <option>Natural Sciences</option>
-        <option>Computer Science</option>
-        <option>Mathematics</option>
-        <option>Business</option>
-      </select>
-    </div>
+          <div class="form-group mb-3">
+            <label for="subject">Course subject</label>
+            <select class="form-control" id="subject" name="subject" placeholder="">
+              <option disabled selected>-Select an option-</option>
+              <option>Languages</option>
+              <option>Natural Sciences</option>
+              <option>Computer Science</option>
+              <option>Mathematics</option>
+              <option>Business</option>
+            </select>
+          </div>
 
-    <div class="form-group">
-      <label for="duration">Course duration</label>
-      <select class="form-control" id="duration" name="duration">
-        <option disabled selected>-Select an option-</option>
-        <option>10h</option>
-        <option>30h</option>
-        <option>50h</option>
-        <option>100h</option>
-        <option>200h</option>
-        <option>500h</option>
-        <option>1000h</option>
-      </select>
-    </div>
+          <div class="form-group mb-3">
+            <label for="duration">Course duration</label>
+            <select class="form-control" id="duration" name="duration">
+              <option disabled selected>-Select an option-</option>
+              <option>10h</option>
+              <option>30h</option>
+              <option>50h</option>
+              <option>100h</option>
+              <option>200h</option>
+              <option>500h</option>
+              <option>1000h</option>
+            </select>
+          </div>
 
-    <label for="difficulty">Select the course difficulty</label>
-    <div id="difficulty">
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="difficulty" id="Basic" value="Basic" checked>
-        <label class="form-check-label" for="Basic">
-          Basic
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="difficulty" id="Intermediate" value="Intermediate" checked>
-        <label class="form-check-label" for="Intermediate">
-          Intermediate
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="difficulty" id="Advanced" value="Advanced" checked>
-        <label class="form-check-label" for="Advanced">
-          Advanced
-        </label>
-      </div>
-    </div>
-
-    <div class="mb-3">
-        <label for="description" class="form-label">Course description:</label>
-        <textarea class="form-control{{#if errors.description}} is-invalid {{/if}}" id="description" name="description" placeholder="Please add a brief description of the new course" rows="6">{{user.description}}</textarea>
-          {{#if errors.description}}
-            <div id="validationServerUsernameFeedback" class="invalid-feedback">
-              {{errors.description.properties.message}}
+          <label for="difficulty">Select the course difficulty</label>
+          <div id="difficulty">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="difficulty" id="Basic" value="Basic" checked>
+              <label class="form-check-label" for="Basic">
+                Basic
+              </label>
             </div>
-        {{/if}}
-    </div>
-
-    <div class="mb-3">
-        <label for="address" class="form-label">Add a course address:</label>
-        <textarea class="form-control{{#if errors.address}} is-invalid {{/if}}" id="address" name="address" placeholder="e.g.: Mainstreet 13, New York, 12345, United States" rows="2">{{user.description}}</textarea>
-        {{#if errors.address}}
-          <div id="validationServerUsernameFeedback" class="invalid-feedback">
-            {{errors.address.properties.message}}
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="difficulty" id="Intermediate" value="Intermediate" checked>
+              <label class="form-check-label" for="Intermediate">
+                Intermediate
+              </label>
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="radio" name="difficulty" id="Advanced" value="Advanced" checked>
+              <label class="form-check-label" for="Advanced">
+                Advanced
+              </label>
+            </div>
           </div>
-       {{/if}}
-    </div>
 
-    <div class="form-group">
-      <label for="imageUrl">Upload a picture that represents your course</label>
-      <input type="file" class="form-control-file" id="imageUrl" name="imageUrl">
-    </div>
+          <div class="mb-3">
+              <label for="description" class="form-label">Course description:</label>
+              <textarea class="form-control{{#if errors.description}} is-invalid {{/if}}" id="description" name="description" placeholder="Please add a brief description of the new course" rows="6">{{user.description}}</textarea>
+                {{#if errors.description}}
+                  <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                    {{errors.description.properties.message}}
+                  </div>
+              {{/if}}
+          </div>
 
-    <button type="submit" class="btn btn-primary">Publish!</button>
-  </form>
+          <div class="mb-3">
+              <label for="address" class="form-label">Add a course address:</label>
+              <textarea class="form-control{{#if errors.address}} is-invalid {{/if}}" id="address" name="address" placeholder="e.g.: Mainstreet 13, New York, 12345, United States" rows="2">{{user.description}}</textarea>
+              {{#if errors.address}}
+                <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                  {{errors.address.properties.message}}
+                </div>
+            {{/if}}
+          </div>
+
+          <div class="form-group mb-3 d-flex flex-column align-content-center">
+            <label for="imageUrl" class="mb-2">Upload a picture that represents your course</label>
+            <input type="file" class="form-control-file" id="imageUrl" name="imageUrl">
+          </div>
+
+          <button type="submit" class="btn button-orange mb-4">Publish!</button>
+        </form>
+      </div>
+   </div>
+  </div>
 </div>

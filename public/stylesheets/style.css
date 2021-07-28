@@ -20,7 +20,7 @@ h1 {
 }
 
 .visible{
-  display: block;
+  display: flex;
 }
 
 .primary-bg {
