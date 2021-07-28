@@ -30,7 +30,7 @@
 
     {{#if currentUser}}
         {{#if isUserSubscribed}}
-        <a href="/unsubscribe/{{id}}/{{currentUser.id}}"><button class="btn btn-danger">Unsubscribe!</button></a>
+        <a href="/unsubscribe/{{id}}/{{currentUser.id}}"><button class="btn btn-danger mt-4">Unsubscribe!</button></a>
     {{else}}
         {{#if currentUser.isCompany}}
             {{#if isCreator}}
