@@ -157,14 +157,6 @@ div div p b {
 }
 
 .form-styling{
-  width: 60vw;
-  background-color:#F1F3F4;
-  border-color: #969697;
-  border-radius: 5px;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
-}
-
-.login-form-styling{
   width: 85vw;
   background-color:#F1F3F4;
   border-color: #969697;

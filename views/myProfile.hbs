@@ -11,7 +11,7 @@
             <div class="d-flex flex-column align-items-center ms-3 me-3">
                 <div class="col-6 d-flex justify-content-center">
 
-                    <button id="changeProfilePicture" class="btn btn-secondary">Change profile picture</button>
+                    <button id="changeProfilePicture" class="btn button-blue">Change profile picture</button>
                 </div>
 
                     <div class="hidden mb-4" id="pictureForm">
@@ -24,24 +24,24 @@
                     {{#if currentUser.isCompany}}
                         {{#if currentUser.companyName}}
                             <h3 class="mt-3">Company name:</h3>
-                            <p>{{currentUser.companyName}}</p>
+                            <p><strong>{{currentUser.companyName}}</strong></p>
                         {{/if}} 
                         {{#if currentUser.email}}
                             <h3 class="mt-3">Email:</h3>
-                            <p>{{currentUser.email}}</p>
+                            <p><strong>{{currentUser.email}}</strong></p>
                         {{/if}}
                         {{#if currentUser.description}}
                             <h3 class="mt-3">Company description:</h3>
-                            <p>{{currentUser.description}}</p>
+                            <p class="text-center">{{currentUser.description}}</p>
                         {{/if}} 
                     {{else}}
                         {{#if currentUser.username}}
                             <h3>Username:</h3>
-                            <p>{{currentUser.username}}</p>
+                            <p><strong>{{currentUser.username}}</strong></p>
                         {{/if}}
                         {{#if currentUser.email}}
                             <h3 class="mt-3">Email:</h3>
-                            <p>{{currentUser.email}}</p>
+                            <p><strong>{{currentUser.email}}</strong></p>
                         {{/if}}
                         {{#if currentUser.fullName}}
                             <h3 class="mt-3">Full name:</h3>
@@ -50,7 +50,7 @@
                     {{/if}}
 
                     <a href="/editMyProfile"><button class="btn btn-secondary mt-3">Edit Profile</button></a>
-                    <p class="mt-1"><em>Use this button to edit your profile data and complete your info: e.g. Full name. </em></p>
+                    <p class="mt-1 text-center"><em>Use this button to edit your profile data and complete your info: e.g. Full name. </em></p>
 
                     {{#unless currentUser.googleID}}
                         <a href="/updatePassword"><button class="btn btn-danger mt-3">Update your password</button></a>
@@ -98,20 +98,21 @@
                         <h4>You are subscribed to this courses:</h4>
                         <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
                             {{#each subscriptionsArr as |subscription|}}
-                                <div class="col">
-                                    <div class="card mt-3">
-                                        <a href="/courseDetail/{{subscription.courseId.id}}" style="text-decoration: none; color:black">
-                                            <img src="{{subscription.courseId.imageUrl}}" class="card-img-top" alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title">{{subscription.courseId.title}}</h5>
-                                                <ul>
-                                                    <li>{{subscription.courseId.subject}}</li>
-                                                    <li>{{subscription.courseId.duration}}</li>
-                                                    <li>{{subscription.courseId.difficulty}}</li>
-                                                </ul>
-                                                <a href="/companyDetail/{{subscription.courseId.companyId.id}}">{{subscription.courseId.companyId.companyName}}</a>
-                                                <a href="/courseDetail/{{subscription.courseId.id}}">See more</a>
-                                            </div>
+                                <div class="col-10 col-sm-6 col-md-4 mb-3">
+                                    <div class="card text-dark bg-light mt-3 h-100 card-styling">
+                                        <a href="/courseDetail/{{subscription.courseId.id}}" style="text-decoration: none; color:black"></a>
+                                            <div class="card-header"><h5 class="card-title text-center"><strong>{{this.title}}</strong></h5></div>
+                                                
+                                                <img src="{{subscription.courseId.imageUrl}}" class="card-img-top card-image-size" alt="...">
+                                                <div class="card-body d-flex flex-column align-items-center">
+                                                    <ul class="no-style text-center ps-0 course-info">
+                                                        <li><strong>Subject:</strong>{{subscription.courseId.subject}}</li>
+                                                        <li><strong>Duration:</strong>{{subscription.courseId.duration}}</li>
+                                                        <li><strong>Difficulty:</strong> {{subscription.courseId.difficulty}}</li>
+                                                    </ul>
+                                                    {{!-- <a href="/companyDetail/{{subscription.courseId.companyId.id}}"><button class="btn btn-secondary button-orange">{{subscription.courseId.companyId.companyName}}</button></a> --}}
+                                                    <a href="/courseDetail/{{subscription.courseId.id}}"><button class="btn btn-primary button-blue">See more</button></a>
+                                                </div>
                                         </a>
                                     </div>
                                 </div>
