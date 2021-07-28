@@ -1,92 +1,130 @@
 {{#if currentUser}}
     <div class="d-flex flex-column align-items-center mb-3">
-        <img class="w-75 p-3 rounded-circle" src="{{currentUser.imageUrl}}">
-         <button id="changeProfilePicture">Change profile picture</button>
-    </div>
-
-    <div class="hidden mb-4" id="pictureForm">
-        <form class="mt-4" action="/updateProfilePic" method="POST" enctype="multipart/form-data">
-        <input type="file" id="profilePicture" name="profilePicture">
-        <button Type="submit">Change picture!</button>
-        </form>
-    </div>
-
-    {{#if currentUser.isCompany}}
-        {{#if currentUser.companyName}}
-            <h3 class="mt-3">Company name:</h3>
-            <p>{{currentUser.companyName}}</p>
-        {{/if}} 
-        {{#if currentUser.email}}
-            <h3 class="mt-3">Email:</h3>
-            <p>{{currentUser.email}}</p>
-        {{/if}}
-        {{#if currentUser.description}}
-            <h3 class="mt-3">Company description:</h3>
-            <p>{{currentUser.description}}</p>
-        {{/if}} 
-    {{else}}
-        {{#if currentUser.username}}
-            <h3>Username:</h3>
-            <p>{{currentUser.username}}</p>
-        {{/if}}
-        {{#if currentUser.email}}
-            <h3 class="mt-3">Email:</h3>
-            <p>{{currentUser.email}}</p>
-        {{/if}}
-        {{#if currentUser.fullName}}
-            <h3 class="mt-3">Full name:</h3>
-            <p>{{currentUser.fullName}}</p>
-        {{/if}}
-    {{/if}}
-
-    <a href="/editMyProfile"><button class="btn btn-secondary mt-3">Edit Profile</button></a>
-    <p class="mt-1"><em>Use this button to edit your profile data and complete your info: e.g. Full name. </em></p>
-
-    {{#unless currentUser.googleID}}
-        <a href="/updatePassword"><button class="btn btn-danger mt-3">Update your password</button></a>
-    {{/unless}}
-    
-    {{#unless currentUser.isCompany}}
-        <a href="/upgradeAccount"><button class="btn btn-warning mt-4">Upgrade to company account</button></a>
-        <p class="mt-1"><em>Company accounts can create and publish their courses, but cant subscribe to any courses <span id="warning">(Warning: Once upgraded you will not be able to restore to a student account!!)</span></em></p>
-    {{/unless}}
-
-    <hr>
-
-    {{#if currentUser.isCompany}}
-        <h4 class="mt-4">You have published this courses:</h4>
-        <a href="/publishCourse"><button class="btn btn-warning mt-2">Publish a new course</button></a>
-        {{#each coursesArr}}
-            {{> courseCard}}
-        {{/each}}
-    {{else}}
-        <h4>You are subscribed to this courses:</h4>
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-            {{#each subscriptionsArr as |subscription|}}
-                <div class="col">
-                    <div class="card mt-3">
-                        <a href="/courseDetail/{{subscription.courseId.id}}" style="text-decoration: none; color:black">
-                            <img src="{{subscription.courseId.imageUrl}}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">{{subscription.courseId.title}}</h5>
-                                <ul>
-                                    <li>{{subscription.courseId.subject}}</li>
-                                    <li>{{subscription.courseId.duration}}</li>
-                                    <li>{{subscription.courseId.difficulty}}</li>
-                                </ul>
-                                <a href="/companyDetail/{{subscription.courseId.companyId.id}}">{{subscription.courseId.companyId.companyName}}</a>
-                                <a href="/courseDetail/{{subscription.courseId.id}}">See more</a>
-                            </div>
-                        </a>
-                    </div>
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-12 col-sm-10 col-md-6 col-lg-4 d-flex justify-content-center mt-4">
+                    <img class="w-75 p-3 rounded-circle" src="{{currentUser.imageUrl}}">
                 </div>
-            {{/each}}
+            </div>
         </div>
-    {{/if}}
-    
+        <div class="container">
+            <div class="d-flex flex-column align-items-center ms-3 me-3">
+                <div class="col-6 d-flex justify-content-center">
+
+                    <button id="changeProfilePicture" class="btn btn-secondary">Change profile picture</button>
+                </div>
+
+                    <div class="hidden mb-4" id="pictureForm">
+                        <form class="mt-4" action="/updateProfilePic" method="POST" enctype="multipart/form-data">
+                        <input type="file" id="profilePicture" name="profilePicture">
+                        <button Type="submit">Change picture!</button>
+                        </form>
+                    </div>
+
+                    {{#if currentUser.isCompany}}
+                        {{#if currentUser.companyName}}
+                            <h3 class="mt-3">Company name:</h3>
+                            <p>{{currentUser.companyName}}</p>
+                        {{/if}} 
+                        {{#if currentUser.email}}
+                            <h3 class="mt-3">Email:</h3>
+                            <p>{{currentUser.email}}</p>
+                        {{/if}}
+                        {{#if currentUser.description}}
+                            <h3 class="mt-3">Company description:</h3>
+                            <p>{{currentUser.description}}</p>
+                        {{/if}} 
+                    {{else}}
+                        {{#if currentUser.username}}
+                            <h3>Username:</h3>
+                            <p>{{currentUser.username}}</p>
+                        {{/if}}
+                        {{#if currentUser.email}}
+                            <h3 class="mt-3">Email:</h3>
+                            <p>{{currentUser.email}}</p>
+                        {{/if}}
+                        {{#if currentUser.fullName}}
+                            <h3 class="mt-3">Full name:</h3>
+                            <p>{{currentUser.fullName}}</p>
+                        {{/if}}
+                    {{/if}}
+
+                    <a href="/editMyProfile"><button class="btn btn-secondary mt-3">Edit Profile</button></a>
+                    <p class="mt-1"><em>Use this button to edit your profile data and complete your info: e.g. Full name. </em></p>
+
+                    {{#unless currentUser.googleID}}
+                        <a href="/updatePassword"><button class="btn btn-danger mt-3">Update your password</button></a>
+                    {{/unless}}
+                    
+                    {{#unless currentUser.isCompany}}
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-sm-8">
+                                    <div class="d-flex flex-column align-items-center">
+                                        <a href="/upgradeAccount"><button class="btn btn-warning mt-4">Upgrade to company account</button></a>
+                                        <p class="mt-1 text-center"><em>Company accounts can create and publish their courses, but cant subscribe to any courses <span id="warning">(Warning: Once upgraded you will not be able to restore to a student account!!)</span></em></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {{/unless}}
+
+                    <hr>
+
+                    {{#if currentUser.isCompany}}
+                        <h4 class="mt-4">You have published this courses:</h4>
+                        <a href="/publishCourse"><button class="btn btn-warning mt-2 mb-2">Publish a new course</button></a>
+                        {{#each coursesArr}}
+                            <div class="col-10 col-sm-6 col-md-4 mb-3">
+                                <div class="card text-dark bg-light mt-3 h-100 card-styling">
+                                    <a href="/courseDetail/{{this.id}}" style="text-decoration: none; color:black">
+                                    <div class="card-header"><h5 class="card-title text-center"><strong>{{this.title}}</strong></h5></div>
+                                        <img src="{{this.imageUrl}}" class="card-img-top card-image-size" alt="...">
+                                        <div class="card-body d-flex flex-column align-items-center">
+                                            <ul class="no-style text-center ps-0 course-info">
+                                                <li><strong>Subject:</strong> {{this.subject}}</li>
+                                                <li><strong>Duration:</strong> {{this.duration}}</li>
+                                                <li><strong>Difficulty:</strong> {{this.difficulty}}</li>
+                                            </ul>
+                                            <div>
+                                            <a href="/courseDetail/{{this.id}}"><button class="btn btn-primary button-blue">See more</button></a>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        {{/each}}
+                    {{else}}
+                        <h4>You are subscribed to this courses:</h4>
+                        <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
+                            {{#each subscriptionsArr as |subscription|}}
+                                <div class="col">
+                                    <div class="card mt-3">
+                                        <a href="/courseDetail/{{subscription.courseId.id}}" style="text-decoration: none; color:black">
+                                            <img src="{{subscription.courseId.imageUrl}}" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{subscription.courseId.title}}</h5>
+                                                <ul>
+                                                    <li>{{subscription.courseId.subject}}</li>
+                                                    <li>{{subscription.courseId.duration}}</li>
+                                                    <li>{{subscription.courseId.difficulty}}</li>
+                                                </ul>
+                                                <a href="/companyDetail/{{subscription.courseId.companyId.id}}">{{subscription.courseId.companyId.companyName}}</a>
+                                                <a href="/courseDetail/{{subscription.courseId.id}}">See more</a>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            {{/each}}
+                        </div>
+                    {{/if}}
+                    
 {{else}}
     <h1>Please log in to see your profile</h1>
     <a href="/auth/loginUser">Login</a>
 {{/if}}
 
-<script src="/js/myProfile.js"></script>
+            <script src="/js/myProfile.js"></script>
+            </div>
+        </div>
+    </div>
