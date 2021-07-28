@@ -18,7 +18,7 @@
     </div>
 
 
-    <div class="card" style="width: 18rem;">
+    <div class="card mb-2" style="width: 18rem;">
         <div class="card-body">
             <h5 class="card-title"><strong>Course details:</strong></h5>
                 <p><strong>Subject:</strong> {{subject}}</p>
@@ -38,7 +38,7 @@
                 <p class="mt-2"><em>Be careful! If a course is deleted people subscribed to it will loose access to it's contents!</em></p>
             {{/if}}
         {{else}}
-            <a href="/subscribe/{{id}}/{{currentUser.id}}"><button class="btn button-orange mt-4">Join now!</button></a>
+            <a href="/subscribe/{{id}}/{{currentUser.id}}"><button class="btn button-orange mt-4 mb-5">Join now!</button></a>
         {{/if}}
     {{/if}}
     {{else}}
