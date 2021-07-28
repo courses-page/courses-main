@@ -96,13 +96,13 @@ nav {
 
 /* INDEX */
 .card-image-size{
-  height: 30vh;
+  height: 25vh;
   object-fit: cover;
 }
 
-/* REGISTER */
-
-
+div div p b {
+  font-size: 1.2rem;
+}
 
 /* HELPERS */
 
@@ -158,6 +158,14 @@ nav {
 
 .form-styling{
   width: 60vw;
+  background-color:#F1F3F4;
+  border-color: #969697;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+}
+
+.login-form-styling{
+  width: 85vw;
   background-color:#F1F3F4;
   border-color: #969697;
   border-radius: 5px;

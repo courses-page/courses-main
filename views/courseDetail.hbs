@@ -1,9 +1,21 @@
-<div class="m-4 text-center d-flex flex-column align-items-center">
+<div class="mt-4 text-center d-flex flex-column align-items-center container">
     <h1 class="header-preset">Course Information:</h1>
 
-    <img src="{{imageUrl}}" style="width: 50vw;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-6 col-md-4">
+                <img src="{{imageUrl}}" style="width: 50vw;" class="img-fluid">
+            </div>
+        </div>
+    </div>
     <h2 class="mt-2">{{title}}</h2>
-    <p>{{description}}</p>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-8 col-md-6">
+                <p>{{description}}</p>
+            </div>
+        </div>
+    </div>
 
 
     <div class="card" style="width: 18rem;">
