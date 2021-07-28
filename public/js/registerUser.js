@@ -10,8 +10,10 @@ document.addEventListener(
       const userForm = document.getElementById("userForm");
       const companyForm = document.getElementById("companyForm");
 
-      userForm.style.display = "block";
+      userForm.style.display = "flex";
       companyForm.style.display = "none";
+      userForm.style.justifyContent = "center";
+      companyForm.style.justifyContent = "";
     })
 
     companyBtn.addEventListener("click", () => {
@@ -19,7 +21,9 @@ document.addEventListener(
       const companyForm = document.getElementById("companyForm");
 
       userForm.style.display = "none";
-      companyForm.style.display = "block";
+      companyForm.style.display = "flex";
+      companyForm.style.justifyContent = "center";
+      userForm.style.justifyContent = "";
     })
   },
   false
