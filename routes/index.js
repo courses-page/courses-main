@@ -21,6 +21,7 @@ router.post("/editMyProfile", routesRouter.doEditMyProfile)
 router.get("/updatePassword", routesRouter.updatePassword)
 router.post("/updatePassword", routesRouter.doUpdatePassword)
 router.get("/upgradeAccount", routesRouter.doUpgradeAccount)
+router.get("/deleteAccount", routesRouter.doDeleteAccount)
 
 //Course
 router.get("/publishCourse", routesRouter.publishCourse)

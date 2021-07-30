@@ -327,3 +327,24 @@ module.exports.doPublishCourse = (req, res, next) => {
             }
         })
 }
+
+module.exports.doDeleteAccount = (req, res, next) => {
+    const userId = req.user.id;
+
+    req.logout()
+
+    User.findByIdAndDelete(userId)
+    .then(() => {
+        return Subscription.find({userId: userId})
+    })
+    .then((subscriptions)=>{
+        subscriptions.forEach((subscription)=>{
+            Subscription.findByIdAndDelete(subscription.id)
+        })
+    })
+    .catch((e)=>{
+        next(e)
+    })   
+
+    res.redirect("/")
+}

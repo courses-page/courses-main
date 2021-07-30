@@ -53,8 +53,12 @@
                     <p class="mt-1 text-center"><em>Use this button to edit your profile data and complete your info: e.g. Full name. </em></p>
 
                     {{#unless currentUser.googleID}}
-                        <a href="/updatePassword"><button class="btn btn-danger mt-3">Update your password</button></a>
+                        <a href="/updatePassword"><button class="btn btn-secondary mt-3">Update your password</button></a>
                     {{/unless}}
+
+                    <div>
+                        <a href="/deleteAccount"><button class="btn btn-danger mt-4">Delete Account!</button></a>
+                    </div>  
                     
                     {{#unless currentUser.isCompany}}
                         <div class="container">
@@ -120,7 +124,8 @@
                                 {{/each}}
                             </div>
                         {{/if}}
-                    {{/if}}                    
+                    {{/if}}    
+              
 {{else}}
     <h1>Please log in to see your profile</h1>
     <a href="/auth/loginUser">Login</a>
