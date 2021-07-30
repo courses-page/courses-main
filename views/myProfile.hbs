@@ -105,8 +105,8 @@
                                 {{#each subscriptionsArr as |subscription|}}
                                     <div class="col-10 mb-3">
                                         <div class="card text-dark bg-light mt-3 h-100 card-styling">
-                                            <a href="/courseDetail/{{subscription.courseId.id}}" style="text-decoration: none; color:black"></a>
-                                                <div class="card-header"><h5 class="card-title text-center"><strong>{{this.title}}</strong></h5></div>
+                                            <a href="/courseDetail/{{subscription.courseId.id}}" style="text-decoration: none; color:black">
+                                                <div class="card-header"><h5 class="card-title text-center"><strong>{{subscription.title}}</strong></h5></div>
                                                     
                                                     <img src="{{subscription.courseId.imageUrl}}" class="card-img-top card-image-size" alt="...">
                                                     <div class="card-body d-flex flex-column align-items-center">
