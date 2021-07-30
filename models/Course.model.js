@@ -40,7 +40,10 @@ const courseSchema = new Schema({
     type: String,
     default: "https://media.revistagq.com/photos/5ca5ffcfbda594eb7433e978/master/pass/steven_seagal_8758.png"
   },
-
+  location: { 
+    type: { type: String }, 
+    coordinates: [Number] 
+  },
 },{
   toJSON: {
   virtuals:true
@@ -48,6 +51,8 @@ const courseSchema = new Schema({
   virtuals:true
 }}
 );
+
+courseSchema.index({ location: '2dsphere' });
 
 courseSchema.virtual("subscriptions", {
   ref: "Subscription",

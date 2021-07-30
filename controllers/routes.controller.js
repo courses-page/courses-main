@@ -361,3 +361,14 @@ module.exports.doDeleteAccount = (req, res, next) => {
     })   
 
 }
+
+module.exports.courseAddress = (req, res, next) => {
+    const {id} = req.params;
+    Course.findById(id)
+        .then((course)=>{
+            res.status(200).json({courseInfo: course})
+        })
+        .catch((e)=>{
+            next(e)
+        })  
+}

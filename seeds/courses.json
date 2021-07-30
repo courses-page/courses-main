@@ -6,7 +6,11 @@
         "difficulty": "Basic",
         "description": "En este bootcamp os enseñamos a desarrollar páginas web desde cero hasta un nivel profesional, hacemos frotend, backend middleend y lo que tu quieras, agarraos que vienen curvas!",
         "address": "Paseo de la Chopera, 14 , 28045 - Madrid (España)",
-        "imageUrl": "https://www.datocms-assets.com/14946/1580815725-madrid-1.jpg?auto=compress&fm=jpg"
+        "imageUrl": "https://www.datocms-assets.com/14946/1580815725-madrid-1.jpg?auto=compress&fm=jpg",
+        "location": {
+            "type": "Point",
+            "coordinates": [40.392660048269335, -3.6985032845642754]
+          }
     },
     {
         "title": "Machine Learning",
@@ -15,7 +19,11 @@
         "difficulty": "Intermediate",
         "description": "This course provides a broad introduction to machine learning, datamining, and statistical pattern recognition. Topics include: (i) Supervised learning (parametric/non-parametric algorithms, support vector machines, kernels, neural networks). (ii) Unsupervised learning (clustering, dimensionality reduction, recommender systems, deep learning). (iii) Best practices in machine learning (bias/variance theory; innovation process in machine learning and AI). The course will also draw from numerous case studies and applications, so that you'll also learn how to apply learning algorithms to building smart robots (perception, control), text understanding (web search, anti-spam), computer vision, medical informatics, audio, database mining, and other areas.",
         "address": "450 Serra Mall, Stanford, CA 94305, Estados Unidos",
-        "imageUrl": "https://news.stanford.edu/news/2011/august/images/cs_online.jpg"
+        "imageUrl": "https://news.stanford.edu/news/2011/august/images/cs_online.jpg",
+        "location": {
+            "type": "Point",
+            "coordinates": [37.43988332994767, -70.16984193658523]
+          }
     },
     {
         "title": "Financial Markets",
@@ -24,7 +32,11 @@
         "difficulty": "Basic",
         "description": "An overview of the ideas, methods, and institutions that permit human society to manage risks and foster enterprise.  Emphasis on financially-savvy leadership skills. Description of practices today and analysis of prospects for the future. Introduction to risk management and behavioral finance principles to understand the real-world functioning of securities, insurance, and banking industries.",
         "address": "New Haven, CT 06520, Estados Unidos",
-        "imageUrl": "https://som.yale.edu/sites/default/files/yale_school_of_management_1200x627.png"
+        "imageUrl": "https://som.yale.edu/sites/default/files/yale_school_of_management_1200x627.png",
+        "location": {
+            "type": "Point",
+            "coordinates": [41.30675625271853, -72.93134359884627]
+          }
     },
     {
         "title": "Chinese for Beginners",
@@ -33,7 +45,11 @@
         "difficulty": "Basic",
         "description": "This is an ABC Chinese course for beginners, including introduction of phonetics and daily expressions. After taking this class, learners can have a basic understanding of Chinese Mandarin and make basic conversations of daily living such as exchanging personal information, talking about daily arrangements and food, asking about price, introducing the city and the weather, telling your hobbies etc. Selected topics and situations come from real life scenarios and can be used for everyday communications.",
         "address": "5 Yiheyuan Rd, Haidian Qu, Beijing Shi, China, 100871",
-        "imageUrl": "https://cdn1.i-scmp.com/sites/default/files/styles/1200x800/public/2015/02/25/beijinglanguageuni.jpg?itok=AI2hit4D"
+        "imageUrl": "https://cdn1.i-scmp.com/sites/default/files/styles/1200x800/public/2015/02/25/beijinglanguageuni.jpg?itok=AI2hit4D",
+        "location": {
+            "type": "Point",
+            "coordinates": [39.988161236332296, 50.30808538809073]
+          }
     },
     {
         "title": "Introduction to labour law",
@@ -42,7 +58,11 @@
         "difficulty": "Basic",
         "description": "This course introduces students to the basic concepts of international labour law. This basic course is designed for a wide audience: for people interested in labour law, human rights, corporate social responsibility, social policy, labour management and the functioning of international organizations. Furthermore, this course will also pave the way for more in-depth study of other subjects related to international, social and labour law.",
         "address": "University Embankment, 7/9, St Petersburg, Rusia, 199034",
-        "imageUrl": "https://www.assignmentpoint.com/wp-content/uploads/2020/09/International-Labor-Law.jpg"
+        "imageUrl": "https://www.assignmentpoint.com/wp-content/uploads/2020/09/International-Labor-Law.jpg",
+        "location": {
+            "type": "Point",
+            "coordinates": [59.940573311942785, 30.30021101620871]
+          }
     },
     {
         "title": "Advanced Digital Marketing Techniques",
@@ -51,15 +71,23 @@
         "difficulty": "Advanced",
         "description": "Further develop your marketing skills with one of the most comprehensive digital marketing courses available. We'll cover SEO, YouTube Marketing, Facebook Marketing, Google Adwords, Google Analytics and more!",
         "address": "Plaza de Carlos Trías Bertrán, 4, 28020 Madrid",
-        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV4ZW1TWpHNh4OpYAyWQXoJPAupE1pq3WMNA&usqp=CAU"
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV4ZW1TWpHNh4OpYAyWQXoJPAupE1pq3WMNA&usqp=CAU",
+        "location": {
+            "type": "Point",
+            "coordinates": [40.45133259426089, -3.6937892499991047]
+          }
     },
     {
         "title": "Fine Arts",
         "subject": "Arts",
         "duration": "50h",
         "difficulty": "Intermediate",
-        "description": "FThe IED Diploma in Fine Arts turns the student into an artist 3.0 and 360º, with training based on developing projects in diverse areas of plastic and visual arts. The hybridisation between disciplines has been introduced into a training programme that offers an academic perspective, but one which is connected to the context of today's professional world, formats, media, and what is to come.",
-        "address": "Palacio de Altamira, Calle de la Flor Alta, 8, 28004 Madri",
-        "imageUrl": "https://assets.ied.it/wp-content/uploads/sites/4/2015/04/588x588_IEDMaster_IEDMadrid_0-588x560.jpg"
+        "description": "The IED Diploma in Fine Arts turns the student into an artist 3.0 and 360º, with training based on developing projects in diverse areas of plastic and visual arts. The hybridisation between disciplines has been introduced into a training programme that offers an academic perspective, but one which is connected to the context of today's professional world, formats, media, and what is to come.",
+        "address": "Palacio de Altamira, Calle de la Flor Alta, 8, 28004 Madrid",
+        "imageUrl": "https://assets.ied.it/wp-content/uploads/sites/4/2015/04/588x588_IEDMaster_IEDMadrid_0-588x560.jpg",
+        "location": {
+            "type": "Point",
+            "coordinates": [40.42163947599112, -3.707469205818879]
+          }
     }
 ]

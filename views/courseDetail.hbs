@@ -1,49 +1,58 @@
-<div class="mt-4 text-center d-flex flex-column align-items-center container">
-    <h1 class="header-preset">Course Information:</h1>
+<div class="d-flex flex-column flex-sm-row">
+    <div class="mt-4 text-center d-flex flex-column align-items-center container">
+        <h1 class="header-preset">Course Information:</h1>
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-sm-6 col-md-4">
-                <img src="{{imageUrl}}" style="width: 50vw;" class="img-fluid">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-6 col-md-4">
+                    <img src="{{imageUrl}}" style="width: 50vw;" class="img-fluid">
+                </div>
             </div>
         </div>
-    </div>
-    <h2 class="mt-2">{{title}}</h2>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-sm-8 col-md-6">
-                <p>{{description}}</p>
+        <h2 class="mt-2">{{title}}</h2>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-8 col-md-6">
+                    <p>{{description}}</p>
+                </div>
             </div>
         </div>
-    </div>
 
 
-    <div class="card mb-2" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title"><strong>Course details:</strong></h5>
-                <p><strong>Subject:</strong> {{subject}}</p>
-                <p><strong>Duration:</strong> {{duration}}</p>
-                <p><strong>Difficulty:</strong> {{difficulty}}</p>
-                <p><strong>Address:</strong> {{address}}</p>
+        <div class="card mb-2" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><strong>Course details:</strong></h5>
+                    <p><strong>Subject:</strong> {{subject}}</p>
+                    <p><strong>Duration:</strong> {{duration}}</p>
+                    <p><strong>Difficulty:</strong> {{difficulty}}</p>
+                    <p><strong>Address:</strong> {{address}}</p>
+            </div>
         </div>
-    </div>
 
-    {{#if currentUser}}
-        {{#if isUserSubscribed}}
-        <a href="/unsubscribe/{{id}}/{{currentUser.id}}"><button class="btn btn-danger mt-4 mb-4">Unsubscribe!</button></a>
-    {{else}}
-        {{#if currentUser.isCompany}}
-            {{#if isCreator}}
-                <a href="/deletecourse/{{id}}"><button class="btn btn-danger mt-4">Delete your course</button></a>
-                <p class="mt-2"><em>Be careful! If a course is deleted, subscribers will lose access to it's contents!</em></p>
-            {{/if}}
+        {{#if currentUser}}
+            {{#if isUserSubscribed}}
+            <a href="/unsubscribe/{{id}}/{{currentUser.id}}"><button class="btn btn-danger mt-4 mb-4">Unsubscribe!</button></a>
         {{else}}
-            <a href="/subscribe/{{id}}/{{currentUser.id}}"><button class="btn button-orange mt-4 mb-5">Join now!</button></a>
+            {{#if currentUser.isCompany}}
+                {{#if isCreator}}
+                    <a href="/deletecourse/{{id}}"><button class="btn btn-danger mt-4">Delete your course</button></a>
+                    <p class="mt-2"><em>Be careful! If a course is deleted, subscribers will lose access to it's contents!</em></p>
+                {{/if}}
+            {{else}}
+                <a href="/subscribe/{{id}}/{{currentUser.id}}"><button class="btn button-orange mt-4 mb-5">Join now!</button></a>
+            {{/if}}
         {{/if}}
-    {{/if}}
-    {{else}}
-        {{#unless currentUser}}
-            <p class="mt-4"><a href="/auth/loginuser"><button class="btn button-orange me-1">Login</button></a> to be able to <b>subscribe</b> to this course</p>
-        {{/unless}}
-    {{/if}}
+        {{else}}
+            {{#unless currentUser}}
+                <p class="mt-4"><a href="/auth/loginuser"><button class="btn button-orange me-1">Login</button></a> to be able to <b>subscribe</b> to this course</p>
+            {{/unless}}
+        {{/if}}
+    </div>
+
+    <div id="map"></div>
+
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdz4KBK_MpfXitvUXs2zal6xVgiA1TRZs"></script>
+<script src="/js/googleMaps.js"></script>

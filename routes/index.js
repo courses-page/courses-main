@@ -27,6 +27,7 @@ router.get("/deleteAccount", routesRouter.doDeleteAccount)
 router.get("/publishCourse", routesRouter.publishCourse)
 router.post("/publishCourse",fileUploader.single("imageUrl"), routesRouter.doPublishCourse)
 router.get("/deletecourse/:id", routesRouter.deleteCourse)
+router.get("/courseAddress/:id", routesRouter.courseAddress)
 
 //Cloudinary 
 router.post("/updateProfilePic", fileUploader.single("profilePicture"), routesRouter.doUpdateProfilePic)
