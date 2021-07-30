@@ -3,7 +3,7 @@
   {{#if currentUser.isCompany}}
       <div class="mb-3">
         <label for="companyName" class="form-label">Company Name:</label>
-        <input type="text" class="form-control{{#if errors.companyName}} is-invalid {{/if}}" id="companyName" name="companyName" placeholder="Modify your username" value="{{#if user.companyName}}{{user.companyName}}{{else}}{{currentUser.companyName}}{{/if}}">
+        <input type="text" class="form-control{{#if errors.companyName}} is-invalid {{/if}}" id="companyName" name="companyName" placeholder="Add your company name" value="{{#if user.companyName}}{{user.companyName}}{{else}}{{currentUser.companyName}}{{/if}}">
         {{#if errors.companyName}}
           <div id="validationServerUsernameFeedback" class="invalid-feedback">
             {{errors.companyName.properties.message}}
@@ -31,7 +31,7 @@
     {{else}}
       <div class="mb-3">
         <label for="username" class="form-label">Username:</label>
-        <input type="text" class="form-control{{#if errors.username}} is-invalid {{/if}}" id="username" name="username" placeholder="Modify your username" value="{{#if user.username}}{{user.username}}{{else}}{{currentUser.username}}{{/if}}">
+        <input type="text" class="form-control{{#if errors.username}} is-invalid {{/if}}" id="username" name="username" placeholder="Add a new username" value="{{#if user.username}}{{user.username}}{{else}}{{currentUser.username}}{{/if}}">
         {{#if errors.username}}
           <div id="validationServerUsernameFeedback" class="invalid-feedback">
             {{errors.username.properties.message}}
@@ -57,6 +57,8 @@
         {{/if}}
       </div>
   {{/if}}
-  <button type="submit" class="btn button-orange text-center">Update!</button>
+  <div class="d-flex align-content-center justify-content-center">
+    <button type="submit" class="btn button-orange text-center">Update!</button>
+  </div>
 </form>
 </div>

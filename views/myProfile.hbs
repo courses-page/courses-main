@@ -95,31 +95,32 @@
                             </div>
                         {{/each}}
                     {{else}}
-                        <h4>You are subscribed to this courses:</h4>
-                        <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
-                            {{#each subscriptionsArr as |subscription|}}
-                                <div class="col-10 mb-3">
-                                    <div class="card text-dark bg-light mt-3 h-100 card-styling">
-                                        <a href="/courseDetail/{{subscription.courseId.id}}" style="text-decoration: none; color:black"></a>
-                                            <div class="card-header"><h5 class="card-title text-center"><strong>{{this.title}}</strong></h5></div>
-                                                
-                                                <img src="{{subscription.courseId.imageUrl}}" class="card-img-top card-image-size" alt="...">
-                                                <div class="card-body d-flex flex-column align-items-center">
-                                                    <ul class="no-style text-center ps-0 course-info">
-                                                        <li><strong>Subject:</strong>{{subscription.courseId.subject}}</li>
-                                                        <li><strong>Duration:</strong>{{subscription.courseId.duration}}</li>
-                                                        <li><strong>Difficulty:</strong> {{subscription.courseId.difficulty}}</li>
-                                                    </ul>
-                                                    {{!-- <a href="/companyDetail/{{subscription.courseId.companyId.id}}"><button class="btn btn-secondary button-orange">{{subscription.courseId.companyId.companyName}}</button></a> --}}
-                                                    <a href="/courseDetail/{{subscription.courseId.id}}"><button class="btn btn-primary button-blue">See more</button></a>
-                                                </div>
-                                        </a>
+                        {{#if subscriptionsArr.[0]}}
+                            <h4>You are subscribed to this courses:</h4>
+                            <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
+                                {{#each subscriptionsArr as |subscription|}}
+                                    <div class="col-10 mb-3">
+                                        <div class="card text-dark bg-light mt-3 h-100 card-styling">
+                                            <a href="/courseDetail/{{subscription.courseId.id}}" style="text-decoration: none; color:black"></a>
+                                                <div class="card-header"><h5 class="card-title text-center"><strong>{{this.title}}</strong></h5></div>
+                                                    
+                                                    <img src="{{subscription.courseId.imageUrl}}" class="card-img-top card-image-size" alt="...">
+                                                    <div class="card-body d-flex flex-column align-items-center">
+                                                        <ul class="no-style text-center ps-0 course-info">
+                                                            <li><strong>Subject:</strong>{{subscription.courseId.subject}}</li>
+                                                            <li><strong>Duration:</strong>{{subscription.courseId.duration}}</li>
+                                                            <li><strong>Difficulty:</strong> {{subscription.courseId.difficulty}}</li>
+                                                        </ul>
+                                                        {{!-- <a href="/companyDetail/{{subscription.courseId.companyId.id}}"><button class="btn btn-secondary button-orange">{{subscription.courseId.companyId.companyName}}</button></a> --}}
+                                                        <a href="/courseDetail/{{subscription.courseId.id}}"><button class="btn btn-primary button-blue">See more</button></a>
+                                                    </div>
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                            {{/each}}
-                        </div>
-                    {{/if}}
-                    
+                                {{/each}}
+                            </div>
+                        {{/if}}
+                    {{/if}}                    
 {{else}}
     <h1>Please log in to see your profile</h1>
     <a href="/auth/loginUser">Login</a>

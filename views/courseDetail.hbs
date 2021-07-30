@@ -30,12 +30,12 @@
 
     {{#if currentUser}}
         {{#if isUserSubscribed}}
-        <a href="/unsubscribe/{{id}}/{{currentUser.id}}"><button class="btn btn-danger mt-4">Unsubscribe!</button></a>
+        <a href="/unsubscribe/{{id}}/{{currentUser.id}}"><button class="btn btn-danger mt-4 mb-4">Unsubscribe!</button></a>
     {{else}}
         {{#if currentUser.isCompany}}
             {{#if isCreator}}
                 <a href="/deletecourse/{{id}}"><button class="btn btn-danger mt-4">Delete your course</button></a>
-                <p class="mt-2"><em>Be careful! If a course is deleted people subscribed to it will loose access to it's contents!</em></p>
+                <p class="mt-2"><em>Be careful! If a course is deleted, subscribers will lose access to it's contents!</em></p>
             {{/if}}
         {{else}}
             <a href="/subscribe/{{id}}/{{currentUser.id}}"><button class="btn button-orange mt-4 mb-5">Join now!</button></a>
