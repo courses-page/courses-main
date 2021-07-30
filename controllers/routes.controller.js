@@ -331,6 +331,22 @@ module.exports.doPublishCourse = (req, res, next) => {
 module.exports.doDeleteAccount = (req, res, next) => {
     const userId = req.user.id;
 
+    function loop(x, arr) {
+        if (x > arr.length - 1) {
+            res.redirect("/")
+          return;
+        } else {
+            Subscription.findByIdAndDelete(arr[x].id)
+            .then((subscription) => {
+            console.log(`Subscription with id`, arr[x].id, "deleted");
+            loop(x + 1, arr);
+          })
+          .catch((e) => {
+            console.error(e);
+          })
+        }
+      }
+
     req.logout()
 
     User.findByIdAndDelete(userId)
@@ -338,13 +354,10 @@ module.exports.doDeleteAccount = (req, res, next) => {
         return Subscription.find({userId: userId})
     })
     .then((subscriptions)=>{
-        subscriptions.forEach((subscription)=>{
-            Subscription.findByIdAndDelete(subscription.id)
-        })
+        loop(0, subscriptions);            
     })
     .catch((e)=>{
         next(e)
     })   
 
-    res.redirect("/")
 }
