@@ -22,7 +22,7 @@
         "imageUrl": "https://news.stanford.edu/news/2011/august/images/cs_online.jpg",
         "location": {
             "type": "Point",
-            "coordinates": [37.43988332994767, -70.16984193658523]
+            "coordinates": [37.42767043998869, -122.17042710542407]
           }
     },
     {
@@ -35,7 +35,7 @@
         "imageUrl": "https://som.yale.edu/sites/default/files/yale_school_of_management_1200x627.png",
         "location": {
             "type": "Point",
-            "coordinates": [41.30675625271853, -72.93134359884627]
+            "coordinates": [41.31535633161436, -72.9208922142904]
           }
     },
     {
@@ -48,7 +48,7 @@
         "imageUrl": "https://cdn1.i-scmp.com/sites/default/files/styles/1200x800/public/2015/02/25/beijinglanguageuni.jpg?itok=AI2hit4D",
         "location": {
             "type": "Point",
-            "coordinates": [39.988161236332296, 50.30808538809073]
+            "coordinates": [39.98687187770462, 89.30568614324041]
           }
     },
     {
@@ -61,7 +61,7 @@
         "imageUrl": "https://www.assignmentpoint.com/wp-content/uploads/2020/09/International-Labor-Law.jpg",
         "location": {
             "type": "Point",
-            "coordinates": [59.940573311942785, 30.30021101620871]
+            "coordinates": [59.94182412190969, 30.298726779571545]
           }
     },
     {
@@ -74,7 +74,7 @@
         "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV4ZW1TWpHNh4OpYAyWQXoJPAupE1pq3WMNA&usqp=CAU",
         "location": {
             "type": "Point",
-            "coordinates": [40.45133259426089, -3.6937892499991047]
+            "coordinates": [40.45142240025077, -3.6937785211628658]
           }
     },
     {

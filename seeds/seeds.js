@@ -20,7 +20,7 @@ function loop(x) {
   User.create(userData[x])
   .then((newUser) => {
     companyId = newUser._id
-    return Course.create({ ...courseData[x], companyId })
+    return Course.create({ ...courseData[x],location:{...courseData[x].location, coordinates: courseData[x].location.coordinates.reverse()}, companyId })
     .then (() => {
       loop(x + 1);
     })

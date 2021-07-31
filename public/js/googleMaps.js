@@ -9,12 +9,12 @@ const getAddress = () => {
       .then(response => {
         const map = new google.maps.Map(document.getElementById('map'), {
             zoom: 13,
-            center: {lat: response.data.courseInfo.location.coordinates[0], lng: response.data.courseInfo.location.coordinates[1]}
+            center: {lat: response.data.courseInfo.location.coordinates[1], lng: response.data.courseInfo.location.coordinates[0]}
           });
         const myMarker = new google.maps.Marker({
         position: {
-            lat: response.data.courseInfo.location.coordinates[0],
-            lng: response.data.courseInfo.location.coordinates[1],
+            lat: response.data.courseInfo.location.coordinates[1],
+            lng: response.data.courseInfo.location.coordinates[0],
         },
         map: map,
         title: "Course located here"
