@@ -5,7 +5,7 @@ const id = urlArr[urlArr.length -1];
 
 const getAddress = () => {
     axios
-      .get(`http://localhost:3000/courseAddress/${id}`)
+      .get(`https://courses-main.herokuapp.com/courseAddress/${id}`)
       .then(response => {
         const map = new google.maps.Map(document.getElementById('map'), {
             zoom: 13,
