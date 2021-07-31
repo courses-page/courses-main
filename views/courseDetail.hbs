@@ -1,10 +1,10 @@
-<div class="d-flex flex-column flex-sm-row">
+<div class="d-flex flex-column flex-lg-row">
     <div class="mt-4 text-center d-flex flex-column align-items-center container">
         <h1 class="header-preset">Course Information:</h1>
 
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-12 col-sm-6 col-md-4">
+                <div class="col-12 col-sm-10 col-md-6">
                     <img src="{{imageUrl}}" style="width: 50vw;" class="img-fluid">
                 </div>
             </div>
@@ -12,20 +12,9 @@
         <h2 class="mt-2">{{title}}</h2>
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-12 col-sm-8 col-md-6">
+                <div class="col-12 col-sm-12 col-md-10">
                     <p>{{description}}</p>
                 </div>
-            </div>
-        </div>
-
-
-        <div class="card mb-2" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title"><strong>Course details:</strong></h5>
-                    <p><strong>Subject:</strong> {{subject}}</p>
-                    <p><strong>Duration:</strong> {{duration}}</p>
-                    <p><strong>Difficulty:</strong> {{difficulty}}</p>
-                    <p><strong>Address:</strong> {{address}}</p>
             </div>
         </div>
 
@@ -47,9 +36,27 @@
                 <p class="mt-4"><a href="/auth/loginuser"><button class="btn button-orange me-1">Login</button></a> to be able to <b>subscribe</b> to this course</p>
             {{/unless}}
         {{/if}}
+
     </div>
 
-    <div id="map"></div>
+    <div class="container mt-2 mb-4 center flex-column flex-lg-column">
+        <div class="container">
+            <h2 class="text-center mt-3 mb-2 header-preset">Check the current course location</h2>
+            <div id="map" class="ms-lg-3 me-lg-3"></div>
+        </div>
+
+        <div class="card mb-2 form-styling mt-4 mt-lg-3 me-lg-0 mb-4 mb-lg-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><strong>Course details:</strong></h5>
+                    <p><strong>Subject:</strong> {{subject}}</p>
+                    <p><strong>Duration:</strong> {{duration}}</p>
+                    <p><strong>Difficulty:</strong> {{difficulty}}</p>
+                    <p><strong>Address:</strong> {{address}}</p>
+            </div>
+        </div>
+
+        
+    </div>
 
 </div>
 

@@ -42,7 +42,7 @@ const courseSchema = new Schema({
   },
   location: { 
     type: { type: String }, 
-    coordinates: [Number] 
+    coordinates: [Number],
   },
 },{
   toJSON: {

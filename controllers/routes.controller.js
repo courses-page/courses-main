@@ -308,9 +308,13 @@ module.exports.publishCourse = (req, res, next) => {
 }
 
 module.exports.doPublishCourse = (req, res, next) => {
-    const {title, subject, duration, difficulty, description, address} = req.body;
+    const {title, subject, duration, difficulty, description, address, latitude, longitude} = req.body;
+    const location = {
+        type: "Point",
+        coordinates: [latitude, longitude]
+    }
     const companyId = req.user.id;
-    let newCourse = {title, subject, duration, difficulty, description, address, companyId};
+    let newCourse = {title, subject, duration, difficulty, description, address, companyId, location};
 
     if(req.file){
         newCourse.imageUrl = req.file.path
