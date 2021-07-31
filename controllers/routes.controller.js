@@ -308,7 +308,12 @@ module.exports.publishCourse = (req, res, next) => {
 }
 
 module.exports.doPublishCourse = (req, res, next) => {
-    const {title, subject, duration, difficulty, description, address, latitude, longitude} = req.body;
+    let {title, subject, duration, difficulty, description, address, latitude, longitude} = req.body;
+    let longitude1 =longitude;
+    longitude= latitude;
+    latitude=longitude1;
+
+
     const location = {
         type: "Point",
         coordinates: [latitude, longitude]
