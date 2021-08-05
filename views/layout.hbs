@@ -11,9 +11,9 @@
    </head>
 
    <body>
-      <div id="navbar-id" class="container-fluid primary-bg pt-3">
-         <nav class="navbar navbar-expand-sm navbar-light bg-light shadow p-3 mb-5 bg-body rounded ms-4 me-4">
-            <div class="container">
+      <div id="navbar-id" class="container-fluid border-bottom">
+         <nav class="navbar navbar-expand-sm navbar-light bg-light bg-body rounded">
+            <div class="container-fluid">
                <a class="navbar-brand" href="/">
                   <img src="/images/online-learning.png" alt="" width="40" height="40">
                </a>
@@ -22,16 +22,16 @@
                </button>
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav me-auto mb-lg-0">
-                     <li class="nav-item">
+                     <li id="see-courses" class="d-flex align-items-center">
                         <strong><a class="nav-link active" aria-current="page" href="/coursesOffer">Check out our courses</a></strong>
                      </li>
                   {{#unless currentUser}}
-                     <li class="nav-item">
+                     <li class="nav-item d-flex align-items-center">
                         <a class="nav-link active" aria-current="page" href="/auth/registerUser">Register</a>
                      </li>
                   {{/unless}}
                   {{#unless currentUser}}
-                     <li class="nav-item">
+                     <li class="nav-item d-flex align-items-center">
                         <a class="nav-link active" aria-current="page" href="/auth/loginUser">Login</a>
                      </li>
                   {{/unless}}
