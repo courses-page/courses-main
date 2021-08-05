@@ -76,8 +76,13 @@ h1 {
   flex-direction: column;
 }
 
-#carousel {
+#partners {
   background-color: rgba(170, 199, 209, 0.2);
+  color: #377ddf;
+}
+
+#partners span {
+  color: black
 }
 
 #landing-info-son {
@@ -142,6 +147,18 @@ div div p b {
 
 #people-studying {
   width: 100%;
+}
+
+#stanford-logo {
+  object-fit: contain;
+}
+
+#ied-logo {
+  object-fit: contain;
+}
+
+#ironhack-logo {
+  object-fit: contain;
 }
 
 /* HELPERS */
