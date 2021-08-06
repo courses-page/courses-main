@@ -82,7 +82,20 @@ h1 {
 }
 
 #partners span {
-  color: black
+  color: black;
+}
+
+#easily h1 {
+  color: black;
+}
+
+#easily p {
+  font-size: 1rem;
+  color: black;
+}
+
+#easily span {
+  color: #377ddf;
 }
 
 #landing-info-son {
