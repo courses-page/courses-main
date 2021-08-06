@@ -1,8 +1,8 @@
 
-<div class="col-10 col-sm-6 col-md-4 mb-3">
+<div class="col-10 col-sm-6 col-xl-4 col-xxl-3 mb-3">
   <div class="card text-dark bg-light mt-3 h-100 card-styling">
       <a href="/courseDetail/{{this.id}}" style="text-decoration: none; color:black">
-      <div class="card-header"><h5 class="card-title text-center"><strong>{{this.title}}</strong></h5></div>
+      <div class="card-header"><h5 class="card-title text-center">{{this.title}}</h5></div>
           <img src="{{this.imageUrl}}" class="card-img-top card-image-size" alt="...">
           <div class="card-body d-flex flex-column align-items-center">
               <ul class="no-style text-center ps-0 course-info">
@@ -10,9 +10,9 @@
                   <li><strong>Duration:</strong> {{this.duration}}</li>
                   <li><strong>Difficulty:</strong> {{this.difficulty}}</li>
               </ul>
-              <div>
-              <a href="/companyDetail/{{this.companyId.id}}"><button class="btn btn-secondary button-orange">{{this.companyId.companyName}}</button></a>
-              <a href="/courseDetail/{{this.id}}"><button class="btn btn-primary button-blue">See more</button></a>
+              <div class="d-flex">
+              <a href="/companyDetail/{{this.companyId.id}}"><button class="btn company-info-btn btn-secondary heading-font me-2 ms-2 ">{{this.companyId.companyName}}</button></a>
+              <a href="/courseDetail/{{this.id}}"><button class="btn see-more btn-primary heading-font">See more</button></a>
               </div>
           </div>
     </a>

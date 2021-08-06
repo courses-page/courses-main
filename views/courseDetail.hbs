@@ -1,6 +1,6 @@
 <div class="d-flex flex-column flex-lg-row">
     <div class="mt-4 text-center d-flex flex-column align-items-center container">
-        <h1 class="header-preset">Course Information:</h1>
+        <h1 id="course-info-title" class="heading-font mb-4">Course Information:</h1>
 
         <div class="container">
             <div class="row justify-content-center">
@@ -28,12 +28,12 @@
                     <p class="mt-2"><em>Be careful! If a course is deleted, subscribers will lose access to it's contents!</em></p>
                 {{/if}}
             {{else}}
-                <a href="/subscribe/{{id}}/{{currentUser.id}}"><button class="btn button-orange mt-4 mb-5">Join now!</button></a>
+                <a href="/subscribe/{{id}}/{{currentUser.id}}"><button id="join-course-detail" class="btn mt-4 mb-5 heading-font">Join now!</button></a>
             {{/if}}
         {{/if}}
         {{else}}
             {{#unless currentUser}}
-                <p class="mt-4"><a href="/auth/loginuser"><button class="btn button-orange me-1">Login</button></a> to be able to <b>subscribe</b> to this course</p>
+                <p class="mt-4"><a href="/auth/loginuser"><button id="login-course" class="btn me-1 heading-font">Login</button></a> to be able to <b>subscribe</b> to this course</p>
             {{/unless}}
         {{/if}}
 
@@ -41,7 +41,7 @@
 
     <div class="container mt-2 mb-4 center flex-column flex-lg-column">
         <div class="container">
-            <h2 class="text-center mt-3 mb-2 header-preset">Check the current course location</h2>
+            <h2 class="text-center mt-3 mb-2 heading-font">Check the current course location</h2>
             <div id="map" class="ms-lg-3 me-lg-3"></div>
         </div>
 

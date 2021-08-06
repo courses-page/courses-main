@@ -39,6 +39,11 @@ h1 {
   color: white;
 }
 
+#login-btn-form {
+  background-color: #377ddf;
+  color: white;
+}
+
 /* NAVBAR */
 
 #navbar-id {
@@ -174,7 +179,26 @@ div div p b {
   object-fit: contain;
 }
 
+#offer {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
 /* HELPERS */
+
+#course-info-title {
+  font-size: 2rem;
+}
+
+#login-course {
+  background-color: #377ddf;
+  color: white;
+}
+
+#join-course-detail {
+  background-color: #377ddf;
+  color: white;
+}
 
 .center {
   display: flex;
@@ -216,8 +240,21 @@ div div p b {
 .card-styling{
   
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
-  transition: 0.3s;  
+  transition: 0.3s;
+  background-color: #4EB7F0;
 }
+
+.see-more {
+  background-color: #377ddf;
+  border: 2px solid #377ddf;
+}
+
+.company-info-btn {
+  background-color: rgba(0, 0, 0, 0);
+  color: #377ddf;
+  border: 2px solid #377ddf;
+}
+
 .card-styling:hover {
   box-shadow: 0 12px 24px 0 rgba(0,0,0,0.4);
 }
